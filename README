@@ -1,0 +1,2 @@
+This is an experiment to deploy Jetty 8.0.4 (using jetty-osgi-boot for web bundle support) to Karaf 3.0.0-SNAPSHOT
+
