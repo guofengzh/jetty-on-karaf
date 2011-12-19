@@ -1,0 +1,3 @@
+contains all raw files which will be copied as-is into your custom distribution
+
+The src/main/distribution contains all your custom Karaf configuration files and scripts, as, for examples

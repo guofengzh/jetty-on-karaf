@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0" name="jetty-bundles">
+    <feature description="jetty-bundles" name="jetty-bundles">
+        <bundle start-level="45">mvn:org.apache.felix/org.apache.felix.http/1.0.0</bundle>
+        <bundle start-level="45">mvn:org.apache.felix/org.apache.felix.webconsole/3.1.8</bundle>
+        <bundle start-level="45">mvn:org.planner/jetty.httpservice.sample/1.0.0-SNAPSHOT</bundle>
+        <bundle start-level="45">mvn:osgi/com.acme.loginmodule/1.0</bundle>
+        <bundle start-level="45">mvn:osgi/com.acme.foo/1.0</bundle>
+    </feature>
+</features>

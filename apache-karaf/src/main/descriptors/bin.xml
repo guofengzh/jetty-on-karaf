@@ -1,0 +1,51 @@
+<assembly>
+   <id>bin</id>
+   
+   <formats>
+     <format>tar.gz</format>
+   </formats>
+   
+  <dependencySets>
+    <dependencySet>
+      <outputDirectory>/system</outputDirectory>
+      <includes>
+        <include>org.osgi:org.osgi.compendium</include>
+      </includes>
+      <unpack>false</unpack>
+      <useTransitiveDependencies>false</useTransitiveDependencies>
+    </dependencySet>
+  </dependencySets>
+     
+   <fileSets>
+      <!-- exclude artifactos from the Karaf Distribution -->
+      <fileSet>
+        <directory>target/dependencies/apache-karaf-${karaf.version}</directory>
+        <outputDirectory>/</outputDirectory>
+        <excludes>
+          <!--exclude>etc/org.ops4j.pax.url.mvn.cfg</exclude-->
+          <exclude>etc/org.apache.karaf.features.cfg</exclude>
+          <exclude>etc/custom.properties</exclude>
+          <exclude>etc/startup.properties</exclude>
+          <exclude>bin/karaf.bat</exclude>
+        </excludes>
+     </fileSet>
+     
+     <fileSet>
+        <directory>target/classes/etc</directory>
+        <outputDirectory>/etc/</outputDirectory>
+    </fileSet>
+    <fileSet>
+      <directory>target/features-repo</directory>
+      <outputDirectory>/system</outputDirectory>
+    </fileSet>
+    
+    <!-- my distribution -->
+    <fileSet>
+      <directory>src/main/distribution</directory>
+      <outputDirectory>/</outputDirectory>
+      <fileMode>0644</fileMode>
+   </fileSet>
+
+  </fileSets>
+  
+</assembly>

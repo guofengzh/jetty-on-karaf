@@ -1,0 +1,35 @@
+
+D:\projects\planner\infrastructure\jetty-on-karaf\features\webconsole>mvn -s c:/.m2/settings.xml dependency:tree 
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.karaf.features:webconsole:pom:3.0.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.karaf.tooling:karaf-maven-plugin is missing. @ line 222, column 21
+[WARNING] 'dependencies.dependency.exclusions.exclusion.groupId' for org.apache.felix:org.apache.felix.webconsole.plugins.event:jar with value ':org.apache.felix' does not match a valid id pattern. @ line 187, column 26
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Apache Karaf :: Assemblies :: Features :: Webconsole 3.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.1:tree (default-cli) @ webconsole ---
+[INFO] org.apache.karaf.features:webconsole:pom:3.0.0-SNAPSHOT
+[INFO] +- org.apache.felix:org.apache.felix.metatype:jar:1.0.4:compile
+[INFO] +- org.apache.karaf.webconsole:org.apache.karaf.webconsole.branding:jar:3.0.0-SNAPSHOT:compile
+[INFO] +- org.apache.karaf.webconsole:org.apache.karaf.webconsole.console:jar:3.0.0-SNAPSHOT:compile
+[INFO] +- org.apache.karaf.webconsole:org.apache.karaf.webconsole.admin:jar:3.0.0-SNAPSHOT:compile
+[INFO] +- org.apache.karaf.webconsole:org.apache.karaf.webconsole.features:jar:3.0.0-SNAPSHOT:compile
+[INFO] +- org.apache.karaf.webconsole:org.apache.karaf.webconsole.gogo:jar:3.0.0-SNAPSHOT:compile
+[INFO] +- org.apache.karaf.webconsole:org.apache.karaf.webconsole.http:jar:3.0.0-SNAPSHOT:compile
+[INFO] +- org.apache.felix:org.apache.felix.webconsole.plugins.event:jar:1.0.2:compile
+[INFO] \- org.apache.felix:org.apache.felix.http.jetty.httpservice:jar:1.0.0:compile
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.141s
+[INFO] Finished at: Mon Dec 19 16:58:53 CST 2011
+[INFO] Final Memory: 7M/371M
+[INFO] ------------------------------------------------------------------------

@@ -1,0 +1,92 @@
+Karaf Deployment Guide - Feature-Based
+
+1. Karaf for Jetty 8.0.4
+ 
+  (1) karaf-src\pom.xml
+        <jetty.version>8.0.4.v20111024</jetty.version>
+        ... 
+        <pax.web.version>2.0.0-SNAPSHOT</pax.web.version>
+     Note: pax-web 2.0 support 8.0.4
+ 
+  (2) changed to reference to geronimo-servlet_3.0_spec
+      (i) karaf-src\assemblies\features\standard\src\main\feature\feature.xml
+          <bundle dependency="true" start-level="30">mvn:org.apache.geronimo.specs/geronimo-servlet_3.0_spec/${geronimo.servlet.version}</bundle>
+      
+      (ii) D:\projects\osgi\karaf\karaf-src\demos\web\pom.xml
+              <dependency>
+                  <groupId>org.apache.geronimo.specs</groupId>
+                  <artifactId>geronimo-servlet_3.0_spec</artifactId>
+                  <scope>provided</scope>
+              </dependency>
+      (iii) D:\projects\osgi\karaf\karaf-src\webconsole\console\pom.xml
+          
+                  <dependency>
+	            <groupId>org.apache.geronimo.specs</groupId>
+	            <artifactId>geronimo-servlet_3.0_spec</artifactId>
+	          </dependency>
+
+     Also the following files need to be change to use servlet-api 3.0
+       pom.xml(1200): <artifactId>servlet-api</artifactId>
+       management\mbeans\http\pom.xml(53): <artifactId>servlet-api</artifactId>
+       shell\http\pom.xml(63): <artifactId>servlet-api</artifactId>
+       webconsole\admin\pom.xml(68): <artifactId>servlet-api</artifactId>
+       webconsole\features\pom.xml(63): <artifactId>servlet-api</artifactId>
+       webconsole\gogo\pom.xml(63): <artifactId>servlet-api</artifactId>
+       webconsole\http\pom.xml(63): <artifactId>servlet-api</artifactId>
+     
+2. launching Karaf and test the web bundle deployment
+
+   (1) install war
+       feature:install -v war
+       this will install jetty web server 8.0.4 and pax-web.
+   
+   (2) install the web console
+       features:install -v webconsole
+       
+   (3) install the web bundle
+       copy the bundle to deploy directory
+       or bundle:install webbundle:file:path/to/the/war
+       
+3 Error message in the log
+  
+  if you see the following in karaf.log
+     org.apache.karaf.shell.console.MultiException: Error installing bundles:
+     ...
+  this means that the bundle has been installed
+
+4. You first need to install war, then your web application, or there might be not required import like javax.servlet cannot be resolbed.
+
+   you could start war and webconsole features when startup karaf by configuring them in org.apache.karaf.features.cfg.
+   
+   but you still cannot put you web applicaiton in deploy directory because they will be deployed before the features (the fileinstall is
+   configured in the framework feature).
+
+6 Jetty JASPI
+
+(1) geronimo-jaspi changed to export: 
+    org.apache.geronimo.components.jaspi.impl;version=2.0
+    
+(2) wab-sample-loginmodule is a bundle for register a jaas realm by blueprint. jetty-osgi-boot cannot deal with this. It seems
+    that because jetty-osgi-boot intercept the bundle deployment event, blueprint not process the bundle again.
+
+(3) jetty-osgi-boot:
+   there is duplicate import for org.eclipse.jetty.osgi.nested because the following in the Export-Packge:
+           org.eclipse.jetty.osgi.nested;version="${parsedVersion.osgiVersion}
+   remove it solve the problem.
+   
+   It seems solved in Jetty 8.1.
+
+7. add features to Karaf
+
+feature:add-url mvn:org.eclipse.jetty/jetty-server/0.0.1-SNAPSHOT/xml/features
+feature:add-url mvn:org.eclipse.jetty/jetty-jaspi/0.0.1-SNAPSHOT/xml/features
+
+Then you could deploy your web application bundles by dropping them to the deploy directory. To deploy OSGi HttpService-based web
+application, you also need to deploy http service implement in jetty-httpservice project.
+
+8. startup.properties
+
+added:
+  org.osgi.compendium-4.2.0.jar=5
+  servlet-api-3.0.jar=5
+or requirement in deploy directory cannot be resolved for http service and http servlet
