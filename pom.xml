@@ -8,7 +8,7 @@
     <modules>
       <module>wab-sample-loginmodule</module>
       <module>wab-sample-jaspi</module>
-      <module>jetty-features</module>
+      <module>features</module>
     </modules>
 
 </project>
