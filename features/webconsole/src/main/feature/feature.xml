@@ -22,7 +22,7 @@
         <config name="org.apache.karaf.webconsole">
             realm=karaf
         </config>
-        <feature>jetty-bundles</feature>
+        <feature>jetty-jaspi</feature>
         <bundle start-level="45">mvn:org.apache.felix/org.apache.felix.http.jetty.httpservice/1.0.0</bundle>
         <bundle start-level="45">mvn:org.apache.felix/org.apache.felix.metatype/${felix.metatype.version}</bundle>
         <bundle start-level="45">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.branding/${webconsole.version}</bundle>

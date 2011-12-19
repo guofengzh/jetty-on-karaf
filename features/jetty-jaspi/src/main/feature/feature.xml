@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0" name="jetty-jaspi">
-    <feature description="jetty-jaspi" name="jetty-jaspi">
-        <bundle start-level="40>mvn:org.apache.geronimo.specs/geronimo-osgi-registry/1.1</bundle>
-        <bundle start-level="40>mvn:org.apache.geronimo.specs/geronimo-osgi-locator/1.1</bundle>
-        <bundle start-level="40>mvn:org.apache.geronimo.specs/geronimo-jaspic_1.0_spec/1.1</bundle>
-        <bundle start-level="40>mvn:org.apache.geronimo.components/geronimo-jaspi/2.0-SNAPSHOT</bundle>
-        <bundle start-level="40>mvn:org.apache.xbean/xbean-reflect/3.6</bundle>
-        <bundle start-level="40>mvn:org.eclipse.jetty/jetty-jaspi/8.0.4.v20111024</bundle>
+    <feature description="jetty-jaspi" name="jetty-jaspi" version="0.0.1-SNAPSHOT">
+        <feature version="0.0.1-SNAPSHOT">jetty-bundles</feature>
+        <bundle start-level="40">mvn:org.apache.geronimo.specs/geronimo-osgi-registry/1.1</bundle>
+        <bundle start-level="40">mvn:org.apache.geronimo.specs/geronimo-osgi-locator/1.1</bundle>
+        <bundle start-level="40">mvn:org.apache.geronimo.specs/geronimo-jaspic_1.0_spec/1.1</bundle>
+        <bundle start-level="40">mvn:org.apache.geronimo.components/geronimo-jaspi/2.0-SNAPSHOT</bundle>
+        <bundle start-level="40">mvn:org.apache.xbean/xbean-reflect/3.6</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-jaspi/8.0.4.v20111024</bundle>
     </feature>
 </features>
