@@ -1,0 +1,52 @@
+java.lang.IllegalArgumentException: Unable to locate . inside unlocated bundle 'org.apache.felix.http.jetty.httpservice'
+
+if not deploy httpservice:
+java.lang.Exception: Could not start bundle mvn:osgi/com.acme.loginmodule/1.0 in feature(s) app-0.0.1-SNAPSHOT: Activator start error in bundle osgi.com.acme.loginmodule [103].
+	at org.apache.karaf.features.internal.FeaturesServiceImpl.startBundle(FeaturesServiceImpl.java:395)
+	at org.apache.karaf.features.internal.FeaturesServiceImpl.installFeatures(FeaturesServiceImpl.java:350)
+	at org.apache.karaf.features.internal.FeaturesServiceImpl.installFeature(FeaturesServiceImpl.java:293)
+	at org.apache.karaf.features.internal.FeaturesServiceImpl.installFeature(FeaturesServiceImpl.java:289)
+	at Proxy2a852be6_88ec_4082_91a5_4774c53840bb.installFeature(Unknown Source)
+	at org.apache.karaf.features.command.InstallFeatureCommand.doExecute(InstallFeatureCommand.java:62)
+	at org.apache.karaf.features.command.FeaturesCommandSupport.doExecute(FeaturesCommandSupport.java:40)
+	at org.apache.karaf.shell.console.AbstractAction.execute(AbstractAction.java:33)
+	at org.apache.karaf.shell.console.OsgiCommandSupport.execute(OsgiCommandSupport.java:39)
+	at org.apache.karaf.shell.commands.basic.AbstractCommand.execute(AbstractCommand.java:33)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)[:1.6.0_24]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)[:1.6.0_24]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)[:1.6.0_24]
+	at java.lang.reflect.Method.invoke(Method.java:597)[:1.6.0_24]
+	at org.apache.aries.proxy.impl.ProxyHandler$1.invoke(ProxyHandler.java:54)[19:org.apache.aries.proxy.impl:0.4.1.SNAPSHOT]
+	at org.apache.aries.proxy.impl.ProxyHandler.invoke(ProxyHandler.java:119)[19:org.apache.aries.proxy.impl:0.4.1.SNAPSHOT]
+	at org.apache.karaf.shell.console.commands.$BlueprintCommand19968316.execute(Unknown Source)[30:org.apache.karaf.shell.console:3.0.0.SNAPSHOT]
+	at org.apache.felix.gogo.runtime.CommandProxy.execute(CommandProxy.java:78)[30:org.apache.karaf.shell.console:3.0.0.SNAPSHOT]
+	at org.apache.felix.gogo.runtime.Closure.executeCmd(Closure.java:477)[30:org.apache.karaf.shell.console:3.0.0.SNAPSHOT]
+	at org.apache.felix.gogo.runtime.Closure.executeStatement(Closure.java:403)[30:org.apache.karaf.shell.console:3.0.0.SNAPSHOT]
+	at org.apache.felix.gogo.runtime.Pipe.run(Pipe.java:108)[30:org.apache.karaf.shell.console:3.0.0.SNAPSHOT]
+	at org.apache.felix.gogo.runtime.Closure.execute(Closure.java:183)[30:org.apache.karaf.shell.console:3.0.0.SNAPSHOT]
+	at org.apache.felix.gogo.runtime.Closure.execute(Closure.java:120)[30:org.apache.karaf.shell.console:3.0.0.SNAPSHOT]
+	at org.apache.felix.gogo.runtime.CommandSessionImpl.execute(CommandSessionImpl.java:89)[30:org.apache.karaf.shell.console:3.0.0.SNAPSHOT]
+	at org.apache.karaf.shell.console.jline.Console.run(Console.java:166)[30:org.apache.karaf.shell.console:3.0.0.SNAPSHOT]
+	at java.lang.Thread.run(Thread.java:662)[:1.6.0_24]
+Caused by: org.osgi.framework.BundleException: Activator start error in bundle osgi.com.acme.loginmodule [103].
+	at org.apache.felix.framework.Felix.activateBundle(Felix.java:2027)
+	at org.apache.felix.framework.Felix.startBundle(Felix.java:1895)
+	at org.apache.felix.framework.BundleImpl.start(BundleImpl.java:944)
+	at org.apache.felix.framework.BundleImpl.start(BundleImpl.java:931)
+	at org.apache.karaf.features.internal.FeaturesServiceImpl.startBundle(FeaturesServiceImpl.java:392)
+	... 25 more
+Caused by: java.util.ConcurrentModificationException
+	at java.util.AbstractList$Itr.checkForComodification(AbstractList.java:372)[:1.6.0_24]
+	at java.util.AbstractList$Itr.next(AbstractList.java:343)[:1.6.0_24]
+	at org.apache.felix.framework.StatefulResolver$ResolverStateImpl.getCandidates(StatefulResolver.java:1333)
+	at org.apache.felix.framework.StatefulResolver.isAllowedDynamicImport(StatefulResolver.java:521)
+	at org.apache.felix.framework.StatefulResolver.resolve(StatefulResolver.java:216)
+	at org.apache.felix.framework.BundleWiringImpl.searchDynamicImports(BundleWiringImpl.java:1539)
+	at org.apache.felix.framework.BundleWiringImpl.findClassOrResourceByDelegation(BundleWiringImpl.java:1439)
+	at org.apache.felix.framework.BundleWiringImpl.access$400(BundleWiringImpl.java:72)
+	at org.apache.felix.framework.BundleWiringImpl$BundleClassLoader.loadClass(BundleWiringImpl.java:1843)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:248)[:1.6.0_24]
+	at org.apache.felix.framework.BundleWiringImpl.getClassByDelegation(BundleWiringImpl.java:1317)
+	at org.apache.felix.framework.Felix.createBundleActivator(Felix.java:4170)
+	at org.apache.felix.framework.Felix.activateBundle(Felix.java:1972)
+	... 29 more
