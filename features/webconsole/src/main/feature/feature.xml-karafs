@@ -16,25 +16,33 @@
       See the License for the specific language governing permissions and
       limitations under the License.
 -->
-<features name="webconsole-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
+<features name="gf-webconsole-3.0.0-SNAPSHOT" xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
 
-    <feature name="webconsole-base" description="Base support of the Karaf WebConsole" version="${webconsole.version}" resolver="(obr)">
+    <feature name="gf-webconsole-base" description="Base support of the Karaf WebConsole" version="3.0.0-SNAPSHOT" resolver="(obr)">
         <config name="org.apache.karaf.webconsole">
             realm=karaf
         </config>
         <feature version="0.0.1-SNAPSHOT">jetty-jaspi</feature>
+        
         <bundle start-level="45">mvn:org.apache.felix/org.apache.felix.http.jetty.httpservice/1.0.0</bundle>
-        <bundle start-level="45">mvn:org.apache.felix/org.apache.felix.metatype/${felix.metatype.version}</bundle>
-        <bundle start-level="45">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.branding/${webconsole.version}</bundle>
-        <bundle start-level="45">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.console/${webconsole.version}</bundle>
+
+        <bundle start-level="45">mvn:org.apache.felix/org.apache.felix.metatype/1.0.4</bundle>
+        <bundle start-level="45">mvn:org.apache.felix/org.apache.felix.scr/1.6.0</bundle>
+
+        <bundle start-level="45">mvn:org.ops4j.pax.web/pax-web-api/2.0.0-SNAPSHOT</bundle>
+        <bundle start-level="45">mvn:org.ops4j.pax.web/pax-web-spi/2.0.0-SNAPSHOT</bundle>
+        
+        <bundle start-level="45">mvn:org.apache.felix/org.apache.felix.webconsole.plugins.event/1.0.2</bundle>
+        <bundle start-level="45">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.branding/3.0.0-SNAPSHOT</bundle>
+        <bundle start-level="45">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.console/3.0.0-SNAPSHOT</bundle>
     </feature>
 
-    <feature name="webconsole" description="Karaf WebConsole for administration and monitoring" version="${webconsole.version}" resolver="(obr)">
-        <feature version="${project.version}">webconsole-base</feature>
-        <bundle start-level="45">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.admin/${webconsole.version}</bundle>
-        <bundle start-level="45">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.features/${webconsole.version}</bundle>
-        <bundle start-level="45">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.gogo/${webconsole.version}</bundle>
-        <bundle start-level="45">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.http/${webconsole.version}</bundle>
-	<bundle start-level="45">mvn:org.apache.felix/org.apache.felix.webconsole.plugins.event/${felix.eventadmin-plugin.version}</bundle>
+    <feature name="gf-webconsole" description="Karaf WebConsole for administration and monitoring" version="3.0.0-SNAPSHOT" resolver="(obr)">
+        <feature version="3.0.0-SNAPSHOT">gf-webconsole-base</feature>
+        <bundle start-level="45">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.admin/3.0.0-SNAPSHOT</bundle>
+        <bundle start-level="45">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.features/3.0.0-SNAPSHOT</bundle>
+        <bundle start-level="45">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.gogo/3.0.0-SNAPSHOT</bundle>
+        <bundle start-level="45">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.http/3.0.0-SNAPSHOT</bundle>
+	<bundle start-level="45">mvn:org.apache.felix/org.apache.felix.webconsole.plugins.event/1.0.2</bundle>
     </feature>
 </features>
