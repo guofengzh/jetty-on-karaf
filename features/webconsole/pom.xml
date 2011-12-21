@@ -21,9 +21,9 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.apache.karaf.features</groupId>
+    <groupId>org.apache.felix.features</groupId>
     <artifactId>webconsole</artifactId>
-    <version>3.0.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Apache Karaf :: Assemblies :: Features :: Webconsole</name>
     <description>Webconsole features</description>
