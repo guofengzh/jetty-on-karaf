@@ -62,6 +62,8 @@
             <configuration>
               <bundles>src/main/resources/bundles.properties</bundles>
               <outputFile>target/feature/feature.xml</outputFile>
+              <includeTransitiveDependency>false</includeTransitiveDependency>
+              <startLevel>40</startLevel>
             </configuration>
           </execution>
        </executions>
@@ -305,6 +307,18 @@
       <exclusion>
         <groupId>org.eclipse.osgi</groupId>
         <artifactId>org.eclipse.osgi</artifactId>
+      </exclusion>
+    </exclusions>
+</dependency>
+
+<dependency>
+    <groupId>org.eclipse.jetty.osgi</groupId>
+    <artifactId>jetty-osgi-boot-mvn</artifactId>
+    <version>${jetty.version}</version>
+    <exclusions>
+      <exclusion>
+        <groupId>org.ops4j.pax.url</groupId>
+        <artifactId>pax-url-aether</artifactId>
       </exclusion>
     </exclusions>
 </dependency>

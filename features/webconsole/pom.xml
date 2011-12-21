@@ -219,23 +219,38 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.karaf.tooling</groupId>
-                <artifactId>karaf-maven-plugin</artifactId>
-                <configuration>
-                    <startLevel>30</startLevel>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>compile</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>features-generate-descriptor</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+    <!--
+       Available goals:
+        features-add-to-repository
+        instance-create-archive
+        commands-generate-help
+        features-generate-descriptor
+        install-kars
+        features-validate-descriptor
+        features-create-kar
+    -->    
+      <plugin>
+        <groupId>org.apache.karaf.tooling</groupId>
+        <artifactId>karaf-maven-plugin</artifactId>
+        <version>3.0.0-SNAPSHOT</version>
+        <executions>
+          <execution>
+            <id>generate</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>features-generate-descriptor</goal>
+              <goal>features-create-kar</goal>
+            </goals>
+            <configuration>
+              <bundles>src/main/resources/bundles.properties</bundles>
+              <outputFile>target/feature/feature.xml</outputFile>
+              <includeTransitiveDependency>false</includeTransitiveDependency>
+              <startLevel>40</startLevel>
+            </configuration>
+          </execution>
+       </executions>
+     </plugin>
+   </plugins>
+ </build>
 
 </project>

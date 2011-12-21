@@ -30,5 +30,6 @@
         <bundle start-level="40">mvn:org.eclipse.jetty/jetty-rewrite/8.0.4.v20111024</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty.osgi/jetty-osgi-boot/8.0.4.v20111024</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty.osgi/jetty-osgi-boot-warurl/8.0.4.v20111024</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.osgi/jetty-osgi-boot-mvn/8.0.4.v20111024</bundle>
     </feature>
 </features>

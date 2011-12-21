@@ -61,6 +61,8 @@
             <configuration>
               <bundles>src/main/resources/bundles.properties</bundles>
               <outputFile>target/feature/feature.xml</outputFile>
+              <includeTransitiveDependency>false</includeTransitiveDependency>
+              <startLevel>40</startLevel>
             </configuration>
           </execution>
        </executions>
