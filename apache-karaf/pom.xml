@@ -165,10 +165,12 @@
                <descriptors>
                    <descriptor>mvn:org.eclipse.jetty/jetty-bundles/0.0.1-SNAPSHOT/xml/features</descriptor>
                    <descriptor>mvn:org.eclipse.jetty/jetty-jaspi/0.0.1-SNAPSHOT/xml/features</descriptor>
+                   <descriptor>mvn:org.apache.felix.features/webconsole/0.0.1-SNAPSHOT/xml/features</descriptor>
                </descriptors>
                <features>
                    <feature>jetty-bundles</feature>
                    <feature>jetty-jaspi</feature>
+                   <feature>app</feature>
                </features>
                <repository>target/features-repo</repository>
             </configuration>
