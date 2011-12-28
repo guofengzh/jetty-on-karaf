@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0" name="jetty-bundles">
-    <feature description="jetty-bundles" name="jetty-bundles" version="0.0.1-SNAPSHOT">
+    <feature description="jetty-bundles" name="jetty-bundles" version="${project.version}">
         <bundle start-level="40">mvn:javax.activation/com.springsource.javax.activation/1.1.0</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty.orbit/javax.annotation/1.1.0.v201108011116</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty.orbit/javax.el/2.2.0.v201108011116</bundle>
@@ -8,28 +8,28 @@
         <bundle start-level="40">mvn:javax.mail/com.springsource.javax.mail/1.4.1</bundle>
         <bundle start-level="40">mvn:javax.transaction/com.springsource.javax.transaction/1.1.0</bundle>
         <bundle start-level="40">mvn:org.objectweb.asm/com.springsource.org.objectweb.asm/3.2.0</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-continuation/8.0.4.v20111024</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-util/8.0.4.v20111024</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-io/8.0.4.v20111024</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-http/8.0.4.v20111024</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-continuation/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-util/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-io/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-http/${jetty.version}</bundle>
         <bundle start-level="40">mvn:javax.servlet/javax.servlet-api/3.0.1</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-security/8.0.4.v20111024</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-server/8.0.4.v20111024</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-security/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-server/${jetty.version}</bundle>
         <bundle start-level="40">mvn:org.mortbay.jetty/servlet-api/3.0.20100224</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-servlet/8.0.4.v20111024</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-xml/8.0.4.v20111024</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-webapp/8.0.4.v20111024</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-jndi/8.0.4.v20111024</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-plus/8.0.4.v20111024</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-deploy/8.0.4.v20111024</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-websocket/8.0.4.v20111024</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-policy/8.0.4.v20111024</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-ajp/8.0.4.v20111024</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-jmx/8.0.4.v20111024</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-client/8.0.4.v20111024</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-rewrite/8.0.4.v20111024</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty.osgi/jetty-osgi-boot/8.0.4.v20111024</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty.osgi/jetty-osgi-boot-warurl/8.0.4.v20111024</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty.osgi/jetty-osgi-boot-mvn/8.0.4.v20111024</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-servlet/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-xml/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-webapp/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-jndi/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-plus/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-deploy/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-websocket/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-policy/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-ajp/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-jmx/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-client/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-rewrite/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.osgi/jetty-osgi-boot/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.osgi/jetty-osgi-boot-warurl/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.osgi/jetty-osgi-boot-mvn/${jetty.version}</bundle>
     </feature>
 </features>

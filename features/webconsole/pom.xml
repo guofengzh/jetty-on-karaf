@@ -1,219 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <!--
-
-        Licensed to the Apache Software Foundation (ASF) under one or more
-        contributor license agreements.  See the NOTICE file distributed with
-        this work for additional information regarding copyright ownership.
-        The ASF licenses this file to You under the Apache License, Version 2.0
-        (the "License"); you may not use this file except in compliance with
-        the License.  You may obtain a copy of the License at
-
-            http://www.apache.org/licenses/LICENSE-2.0
-
-        Unless required by applicable law or agreed to in writing, software
-        distributed under the License is distributed on an "AS IS" BASIS,
-        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-        See the License for the specific language governing permissions and
-        limitations under the License.
-    -->
-
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.apache.felix.features</groupId>
-    <artifactId>webconsole</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <name>Apache Karaf :: Assemblies :: Features :: Webconsole</name>
-    <description>Webconsole features</description>
+  <parent>
+     <groupId>org.eclipse.jetty</groupId>
+     <artifactId>jetty-feature-parent</artifactId>
+     <version>0.0.1-SNAPSHOT</version>
+     <relativePath>../pom.xml</relativePath>
+  </parent>
 
+  <groupId>org.apache.felix.features</groupId>
+  <artifactId>gf-webconsole</artifactId>
+  <packaging>pom</packaging>
+  
     <properties>
         <felix.metatype.version>1.0.4</felix.metatype.version>
-        <webconsole.version>3.0.0-SNAPSHOT</webconsole.version>
+        <pax.web.version>2.0.0-SNAPSHOT</pax.web.version>
+        <karaf.webconsole.version>3.0.0-SNAPSHOT</karaf.webconsole.version>
         <felix.eventadmin-plugin.version>1.0.2</felix.eventadmin-plugin.version>
     </properties>
 
+<!-- TODO: Dec. 21, 2011 -->
     <dependencies>
-
-        <dependency>
-            <groupId>org.apache.felix</groupId>
-            <artifactId>org.apache.felix.metatype</artifactId>
-            <version>${felix.metatype.version}</version>
-            <exclusions>
-              <exclusion>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>org.osgi.core</artifactId>
-              </exclusion>
-              <exclusion>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>org.osgi.compendium</artifactId>
-              </exclusion>
-              <exclusion>
-                <groupId>net.sf.kxml</groupId>
-                <artifactId>kxml2</artifactId>
-              </exclusion>
-              <exclusion>
-                <groupId>org.osgi</groupId>
-                <artifactId>org.osgi.core</artifactId>
-              </exclusion>
-              <exclusion>
-                <groupId>org.osgi</groupId>
-                <artifactId>org.osgi.compendium</artifactId>
-              </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.karaf.webconsole</groupId>
-            <artifactId>org.apache.karaf.webconsole.branding</artifactId>
-            <version>${webconsole.version}</version>
-            <exclusions>
-              <exclusion>
-                <groupId>org.osgi</groupId>
-                <artifactId>org.osgi.core</artifactId>
-              </exclusion>
-              <exclusion>
-                <groupId>org.osgi</groupId>
-                <artifactId>org.osgi.compendium</artifactId>
-              </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.karaf.webconsole</groupId>
-            <artifactId>org.apache.karaf.webconsole.console</artifactId>
-            <version>${webconsole.version}</version>
-            <exclusions>
-              <exclusion>
-                <groupId>org.apache.geronimo.specs</groupId>
-                <artifactId>geronimo-servlet_3.0_spec</artifactId>
-              </exclusion>
-              <exclusion>
-                <groupId>org.osgi</groupId>
-                <artifactId>org.osgi.core</artifactId>
-              </exclusion>
-              <exclusion>
-                <groupId>org.osgi</groupId>
-                <artifactId>org.osgi.compendium</artifactId>
-              </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.karaf.webconsole</groupId>
-            <artifactId>org.apache.karaf.webconsole.admin</artifactId>
-            <version>${webconsole.version}</version>
-            <exclusions>
-              <exclusion>
-                <groupId>org.osgi</groupId>
-                <artifactId>org.osgi.core</artifactId>
-              </exclusion>
-              <exclusion>
-                <groupId>org.osgi</groupId>
-                <artifactId>org.osgi.compendium</artifactId>
-              </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.karaf.webconsole</groupId>
-            <artifactId>org.apache.karaf.webconsole.features</artifactId>
-            <version>${webconsole.version}</version>
-            <exclusions>
-              <exclusion>
-                <groupId>org.apache.karaf.features</groupId>
-                <artifactId>org.apache.karaf.features.core</artifactId>
-              </exclusion>
-              <exclusion>
-                <groupId>org.osgi</groupId>
-                <artifactId>org.osgi.core</artifactId>
-              </exclusion>
-              <exclusion>
-                <groupId>org.osgi</groupId>
-                <artifactId>org.osgi.compendium</artifactId>
-              </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.karaf.webconsole</groupId>
-            <artifactId>org.apache.karaf.webconsole.gogo</artifactId>
-            <version>${webconsole.version}</version>
-            <exclusions>
-              <exclusion>
-                <groupId>org.apache.karaf.shell</groupId>
-                <artifactId>org.apache.karaf.shell.console</artifactId>
-              </exclusion>
-              <exclusion>
-                <groupId>org.osgi</groupId>
-                <artifactId>org.osgi.core</artifactId>
-              </exclusion>
-              <exclusion>
-                <groupId>org.osgi</groupId>
-                <artifactId>org.osgi.compendium</artifactId>
-              </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.karaf.webconsole</groupId>
-            <artifactId>org.apache.karaf.webconsole.http</artifactId>
-            <version>${webconsole.version}</version>
-            <exclusions>
-              <exclusion>
-                <groupId>org.apache.karaf.features</groupId>
-                <artifactId>org.apache.karaf.features.core</artifactId>
-              </exclusion>
-              <exclusion>
-                <groupId>org.osgi</groupId>
-                <artifactId>org.osgi.core</artifactId>
-              </exclusion>
-              <exclusion>
-                <groupId>org.osgi</groupId>
-                <artifactId>org.osgi.compendium</artifactId>
-              </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.felix</groupId>
-            <artifactId>org.apache.felix.webconsole.plugins.event</artifactId>
-            <version>${felix.eventadmin-plugin.version}</version>
-            <exclusions>
-              <exclusion>
-                <groupId>org.osgi</groupId>
-                <artifactId>org.osgi.core</artifactId>
-              </exclusion>
-              <exclusion>
-                <groupId>org.osgi</groupId>
-                <artifactId>org.osgi.compendium</artifactId>
-              </exclusion>
-              <exclusion>
-                <groupId>:org.apache.felix</groupId>
-                <artifactId>org.apache.felix.http.jetty.httpservice</artifactId>
-              </exclusion>
-            </exclusions>
-        </dependency>
-
-<!-- http service -->
-<dependency>
-    <groupId>org.apache.felix</groupId>
-    <artifactId>org.apache.felix.http.jetty.httpservice</artifactId>
-    <version>1.0.0</version>
-    <exclusions>
-      <exclusion>
-        <groupId>org.osgi</groupId>
-        <artifactId>core</artifactId>
-      </exclusion>
-      <exclusion>
-        <groupId>org.osgi</groupId>
-        <artifactId>org.osgi.compendium</artifactId>
-      </exclusion>
-      <exclusion>
-        <groupId>org.apache.felix</groupId>
-        <artifactId>org.apache.felix.http.api</artifactId>
-      </exclusion>
-      <exclusion>
-        <groupId>org.apache.felix</groupId>
-        <artifactId>org.apache.felix.http.base</artifactId>
-      </exclusion>
-    </exclusions>
-</dependency>
 
     </dependencies>
 

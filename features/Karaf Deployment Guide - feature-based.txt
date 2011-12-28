@@ -70,11 +70,11 @@ Karaf Deployment Guide - Feature-Based
     that because jetty-osgi-boot intercept the bundle deployment event, blueprint not process the bundle again.
 
 (3) jetty-osgi-boot:
-   there is duplicate import for org.eclipse.jetty.osgi.nested because the following in the Export-Packge:
-           org.eclipse.jetty.osgi.nested;version="${parsedVersion.osgiVersion}
-   remove it solve the problem.
+   there is duplicate import for org.eclipse.jetty.osgi.nestedin META-INF/MANIFEST.MF
    
-   It seems solved in Jetty 8.1.
+   It seems to be solved in Jetty 8.1.
+(4) jetty-plus: add import for javax.security.*
+    this will be solved in 8.1.x
 
 7. add features to Karaf
 
