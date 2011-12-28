@@ -1,0 +1,51 @@
+karaf@root>
+2011-12-21 18:15:18.640:INFO:oejobis.DefaultJettyAtJettyHomeHelper:Configuring the default jetty server with file:/D:/projects/planner/infrastructure/mycustom-karaf-1.0/bin/../jettyhome/etc/jetty.xml
+2011-12-21 18:15:18.671:WARN:oejx.XmlConfiguration:Config error at 
+<Set name="ThreadPool">||
+ <New class="org.eclipse.jetty.util.thread.QueuedThreadPool">
+   <Set name="minThreads">10</Set>
+   <Set name="maxThreads">200</Set>
+   <Set name="detailedDump">false</Set>
+ </New>|
+</Set>
+java.util.ConcurrentModificationException
+java.util.ConcurrentModificationException
+        at java.util.AbstractList$Itr.checkForComodification(AbstractList.java:372)
+        at java.util.AbstractList$Itr.next(AbstractList.java:343)
+        at org.apache.felix.framework.StatefulResolver$ResolverStateImpl.getCandidates(StatefulResolver.java:1333)
+        at org.apache.felix.framework.StatefulResolver.isAllowedDynamicImport(StatefulResolver.java:521)
+        at org.apache.felix.framework.StatefulResolver.resolve(StatefulResolver.java:216)
+        at org.apache.felix.framework.BundleWiringImpl.searchDynamicImports(BundleWiringImpl.java:1539)
+        at org.apache.felix.framework.BundleWiringImpl.findClassOrResourceByDelegation(BundleWiringImpl.java:1439)
+        at org.apache.felix.framework.BundleWiringImpl.access$400(BundleWiringImpl.java:72)
+        at org.apache.felix.framework.BundleWiringImpl$BundleClassLoader.loadClass(BundleWiringImpl.java:1843)
+        at java.lang.ClassLoader.loadClass(ClassLoader.java:248)
+        at org.eclipse.jetty.util.Loader.loadClass(Loader.java:92)
+        at org.eclipse.jetty.xml.XmlConfiguration$JettyXmlConfiguration.nodeClass(XmlConfiguration.java:346)
+        at org.eclipse.jetty.xml.XmlConfiguration$JettyXmlConfiguration.newObj(XmlConfiguration.java:718)
+        at org.eclipse.jetty.xml.XmlConfiguration$JettyXmlConfiguration.itemValue(XmlConfiguration.java:1078)
+        at org.eclipse.jetty.xml.XmlConfiguration$JettyXmlConfiguration.value(XmlConfiguration.java:993)
+        at org.eclipse.jetty.xml.XmlConfiguration$JettyXmlConfiguration.set(XmlConfiguration.java:413)
+        at org.eclipse.jetty.xml.XmlConfiguration$JettyXmlConfiguration.configure(XmlConfiguration.java:375)
+        at org.eclipse.jetty.xml.XmlConfiguration$JettyXmlConfiguration.configure(XmlConfiguration.java:335)
+        at org.eclipse.jetty.xml.XmlConfiguration.configure(XmlConfiguration.java:288)
+        at org.eclipse.jetty.osgi.boot.internal.serverfactory.ServerInstanceWrapper.configure(ServerInstanceWrapper.java:293)
+        at org.eclipse.jetty.osgi.boot.internal.serverfactory.ServerInstanceWrapper.start(ServerInstanceWrapper.java:163)
+        at org.eclipse.jetty.osgi.boot.internal.serverfactory.JettyServerServiceTracker.serviceChanged(JettyServerServiceTracker.java:108)
+        at org.apache.felix.framework.util.EventDispatcher.invokeServiceListenerCallback(EventDispatcher.java:932)
+        at org.apache.felix.framework.util.EventDispatcher.fireEventImmediately(EventDispatcher.java:793)
+        at org.apache.felix.framework.util.EventDispatcher.fireServiceEvent(EventDispatcher.java:543)
+        at org.apache.felix.framework.Felix.fireServiceEvent(Felix.java:4260)
+        at org.apache.felix.framework.Felix.registerService(Felix.java:3275)
+        at org.apache.felix.framework.BundleContextImpl.registerService(BundleContextImpl.java:346)
+        at org.apache.felix.framework.BundleContextImpl.registerService(BundleContextImpl.java:320)
+        at org.eclipse.jetty.osgi.boot.internal.serverfactory.DefaultJettyAtJettyHomeHelper.startJettyAtJettyHome(DefaultJettyAtJettyHomeHelper.java:157)
+        at org.eclipse.jetty.osgi.boot.JettyBootstrapActivator.start(JettyBootstrapActivator.java:113)
+        at org.apache.felix.framework.util.SecureAction.startActivator(SecureAction.java:641)
+        at org.apache.felix.framework.Felix.activateBundle(Felix.java:1977)
+        at org.apache.felix.framework.Felix.startBundle(Felix.java:1895)
+        at org.apache.felix.framework.BundleImpl.start(BundleImpl.java:944)
+        at org.apache.felix.framework.BundleImpl.start(BundleImpl.java:931)
+        at org.apache.karaf.features.internal.FeaturesServiceImpl.startBundle(FeaturesServiceImpl.java:392)
+        at org.apache.karaf.features.internal.FeaturesServiceImpl.installFeatures(FeaturesServiceImpl.java:350)
+        at org.apache.karaf.features.internal.FeaturesServiceImpl$1.run(FeaturesServiceImpl.java:1006)
