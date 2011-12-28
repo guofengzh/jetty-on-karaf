@@ -45,7 +45,8 @@
 
     <feature description="HTT SER" name="my-httpservice" version="2.2.5">
         <feature version="7.5.4.v20111024">my-jetty</feature>
-        <bundle start-level="42">mvn:org.apache.felix/org.apache.felix.http.jetty.httpservice/1.0.0</bundle>
+        <!-- mvn is not supported by 7.5.4 -->
+        <!--bundle start-level="42">mvn:org.apache.felix/org.apache.felix.http.jetty.httpservice/1.0.0</bundle-->
     </feature>
 
     <feature name="my-webconsole-base" version="2.2.5">
