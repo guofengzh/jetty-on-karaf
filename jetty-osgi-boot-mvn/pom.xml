@@ -22,11 +22,11 @@
       <version>${project.version}</version>
     </dependency>
 
-<dependency>
-    <groupId>org.ops4j.pax.url</groupId>
-    <artifactId>pax-url-aether</artifactId>
-    <version>1.3.5</version>
-</dependency>
+    <dependency>
+        <groupId>org.planner</groupId>
+        <artifactId>pax-url-aether</artifactId>
+        <version>1.3.5</version>
+    </dependency>
   </dependencies>
 
       <build> 
@@ -109,17 +109,15 @@
                         <Export-Package>org.eclipse.jetty.osgi.boot.mvn;version="${parsedVersion.osgiVersion}"</Export-Package> 
                         <Bundle-Activator>org.eclipse.jetty.osgi.boot.mvn.Activator</Bundle-Activator>
                         <Import-Package>
- !org.ops4j.*,
  !junit.*,
  !org.apache.log.*,
  !org.apache.xerces.*,
  !org.cyberneko.*,
- org.eclipse.jetty.osgi.boot.utils;version="[7.5.0,9.0.0)",
+ org.eclipse.jetty.osgi.boot.utils;version="[7.0.0,8.5.0)",
  org.osgi.framework,
  *
                         </Import-Package>
                         <Bundle-RequiredExecutionEnvironment>JavaSE-1.6</Bundle-RequiredExecutionEnvironment> 
-                        <Embed-Dependency>*;scope=compile;inline=true;artifactId=pax-url-aether</Embed-Dependency>
                     </instructions>
                 </configuration>
             </plugin>

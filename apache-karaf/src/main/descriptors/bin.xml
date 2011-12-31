@@ -10,6 +10,7 @@
       <outputDirectory>/system</outputDirectory>
       <includes>
         <include>org.osgi:org.osgi.compendium</include>
+        <include>org.planner:pax-url-aether</include>
       </includes>
       <unpack>false</unpack>
       <useTransitiveDependencies>false</useTransitiveDependencies>
