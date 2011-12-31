@@ -1,0 +1,1 @@
+patch pax-url-aether to publish MavenArtifactResolverService, which will resolve mvn url to File.
