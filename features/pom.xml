@@ -25,6 +25,7 @@
     
     <modules>
       <module>jetty-bundles</module>
+      <module>webconsole</module>
     </modules>
 
 </project>

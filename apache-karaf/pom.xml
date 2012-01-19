@@ -12,6 +12,7 @@
   <properties>
     <karaf.version>3.0.0-SNAPSHOT</karaf.version>
     <feature.plugin.version>3.0.0-SNAPSHOT</feature.plugin.version>
+    <pax-url-aether.version>1.4-SNAPSHOT</pax-url-aether.version>
   </properties>
   
   <pluginRepositories>

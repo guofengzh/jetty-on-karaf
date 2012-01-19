@@ -27,7 +27,7 @@
     <feature description="sample" name="sample" version="0.0.1-SNAPSHOT">
         <feature version="${project.version}">felix-webconsole</feature>
         <bundle start-level="45">mvn:org.planner/jetty.httpservice.sample/1.0.0-SNAPSHOT</bundle>
-        <bundle start-level="45">mvn:org.planner/cwab-sample-loginmodule/1.0.0-SNAPSHOT</bundle>
+        <bundle start-level="45">mvn:org.planner/wab-sample-loginmodule/1.0.0-SNAPSHOT</bundle>
         <bundle start-level="45">mvn:org.planner/wab-sample/1.0.0-SNAPSHOT/war</bundle>
     </feature>
 </features>

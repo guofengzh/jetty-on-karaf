@@ -5,18 +5,6 @@
      <format>tar.gz</format>
    </formats>
    
-  <dependencySets>
-    <dependencySet>
-      <outputDirectory>/system</outputDirectory>
-      <includes>
-        <include>org.osgi:org.osgi.compendium</include>
-        <include>org.planner:pax-url-aether</include>
-      </includes>
-      <unpack>false</unpack>
-      <useTransitiveDependencies>false</useTransitiveDependencies>
-    </dependencySet>
-  </dependencySets>
-     
    <fileSets>
       <!-- exclude artifactos from the Karaf Distribution -->
       <fileSet>
