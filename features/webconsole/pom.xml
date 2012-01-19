@@ -4,20 +4,17 @@
     <modelVersion>4.0.0</modelVersion>
 
   <parent>
-     <groupId>org.eclipse.jetty</groupId>
-     <artifactId>jetty-feature-parent</artifactId>
-     <version>0.0.1-SNAPSHOT</version>
+     <groupId>org.planner</groupId>
+     <artifactId>feature-parent</artifactId>
+     <version>1.0.0-SNAPSHOT</version>
      <relativePath>../pom.xml</relativePath>
   </parent>
 
-  <groupId>org.apache.felix.features</groupId>
-  <artifactId>gf-webconsole</artifactId>
+  <artifactId>felix-webconsole</artifactId>
   <packaging>pom</packaging>
   
     <properties>
         <felix.metatype.version>1.0.4</felix.metatype.version>
-        <pax.web.version>2.0.0-SNAPSHOT</pax.web.version>
-        <karaf.webconsole.version>3.0.0-SNAPSHOT</karaf.webconsole.version>
         <felix.eventadmin-plugin.version>1.0.2</felix.eventadmin-plugin.version>
     </properties>
 

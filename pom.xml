@@ -2,13 +2,18 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.eclipse.jetty</groupId>
   <artifactId>jetty-on-karaf</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
       
     <modules>
-      <module>wab-sample-loginmodule</module>
-      <module>wab-sample-jaspi</module>
       <module>features</module>
+      <module>jetty-httpservice</module>
+      <module>jetty-httpservice-sample</module>
+      <module>jetty-osgi-boot-mvn</module>
+      <module>pax-url-aether</module>
+      <module>wab-sample-loginmodule</module>
+      <module>wab-sample</module>
+      <module>apache-karaf</module>
     </modules>
 
 </project>

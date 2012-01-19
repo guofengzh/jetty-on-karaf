@@ -3,9 +3,9 @@
   <modelVersion>4.0.0</modelVersion>
     
   <parent>
-     <groupId>org.eclipse.jetty</groupId>
-     <artifactId>jetty-feature-parent</artifactId>
-     <version>0.0.1-SNAPSHOT</version>
+     <groupId>org.planner</groupId>
+     <artifactId>feature-parent</artifactId>
+     <version>1.0.0-SNAPSHOT</version>
      <relativePath>../pom.xml</relativePath>
   </parent>
 
