@@ -1,5 +1,0 @@
-contains all resource files that have Maven property values to be filtered/replaced. Typically, this will include features descriptor and configuration files.
-
-For instance, src/main/filtered-resources could contain:
-  my-features.xml where maven properties will be replaced
-  etc/org.apache.karaf.features.cfg file containing your myfeatures descriptor:
