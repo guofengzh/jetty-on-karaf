@@ -13,17 +13,18 @@ org.eclipse.jetty.servlet.WebApplicationContext objet
   <!-- <Set name="contextPath">/mycontext</Set> -->
   <Set name="parentLoaderPriority">true</Set>
   
-<Set name="securityHandler">
+  <Set name="securityHandler">
     <New class="org.eclipse.jetty.security.ConstraintSecurityHandler">
      <Set name="loginService">
        <New class="org.eclipse.jetty.plus.jaas.JAASLoginService">
          <Set name="name">Test JAAS Realm</Set>
          <Set name="loginModuleName">jetty</Set>
        </New>
-     </Set>
+     </Set>     
      <Set name="identityService">
        <New class="org.web.sample.IdentityService4KarafJAAS" >
        </New>
      </Set>
+    </New>
   </Set>
- </Configure>
+</Configure>

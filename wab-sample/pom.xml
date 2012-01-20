@@ -80,15 +80,12 @@
     <configuration>
       <instructions>
         <Bundle-Activator>org.web.sample.Activator</Bundle-Activator>
-        <Bundle-Name>Foo Web application</Bundle-Name>
-        <Export-Package>org.web.sample.*</Export-Package>
+        <Bundle-Name>WAB Application</Bundle-Name>
         <Import-Package>
-           !org.web.sample,org.osgi.framework,
-           com.sun.security.auth.login,
-           org.eclipse.jetty.security.jaspi
+           !org.web.sample
         </Import-Package>
         <DynamicImport-Package>*</DynamicImport-Package>
-        <Web-ContextPath>/foo</Web-ContextPath>
+        <Web-ContextPath>/wab-sample</Web-ContextPath>
         <Bundle-ClassPath>.,WEB-INF/classes</Bundle-ClassPath>
         <Embed-Directory>WEB-INF/lib</Embed-Directory>
         <Embed-Dependency>
