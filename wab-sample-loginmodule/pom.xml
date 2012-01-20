@@ -79,12 +79,10 @@
     <version>2.3.5</version>
     <configuration>
       <instructions>
-        <Bundle-Activator>org.web.sample.Activator</Bundle-Activator>
         <Bundle-Name>Foo Web application LoginModule</Bundle-Name>
         <Import-Package>
            org.osgi.framework,
            com.sun.security.auth.login,
-           org.eclipse.jetty.security.jaspi,
            org.apache.karaf.jaas.modules.properties
         </Import-Package>
         <DynamicImport-Package>*</DynamicImport-Package>
