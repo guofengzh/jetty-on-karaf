@@ -3,7 +3,7 @@
       xsi:schemaLocation="http://maven.apache.org/POM http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>my.company</groupId>
+  <groupId>org.planner</groupId>
   <artifactId>mycustom-karaf</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
@@ -13,6 +13,7 @@
     <karaf.version>3.0.0-SNAPSHOT</karaf.version>
     <feature.plugin.version>3.0.0-SNAPSHOT</feature.plugin.version>
     <pax-url-aether.version>1.4-SNAPSHOT</pax-url-aether.version>
+    <pax-url-wrap.version>1.4-SNAPSHOT</pax-url-wrap.version>
   </properties>
   
   <pluginRepositories>
@@ -182,6 +183,7 @@
                    <descriptor>mvn:org.planner/felix-webconsole/1.0.0-SNAPSHOT/xml/features</descriptor>
                </descriptors>
                <features>
+                   <feature>pcore</feature>
                    <feature>jetty-bundles</feature>
                    <feature>felix-webconsole</feature>
                    <feature>sample</feature>

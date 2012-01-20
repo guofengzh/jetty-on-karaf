@@ -129,6 +129,40 @@
     </Call>
 
     <!-- =========================================================== -->
+    <!-- Configure Authentication Realms                             -->
+    <!-- Realms may be configured for the entire server here, or     -->
+    <!-- they can be configured for a specific web app in a context  -->
+    <!-- configuration (see $(jetty.home)/contexts/test.xml for an   -->
+    <!-- example).                                                   -->
+    <!-- =========================================================== -->
+    <!--Call name="addBean">
+      <Arg>
+        <New class="org.eclipse.jetty.plus.jaas.JAASLoginService">
+		  <Set name="name">karaf</Set>
+          <Set name="loginModuleName">karaf</Set>
+		  <Set name="roleClassNames">
+			<Array type="java.lang.String">
+			  <Item>org.apache.karaf.jaas.modules.RolePrincipal</Item>
+			</Array>
+		  </Set>
+        </New>
+      </Arg>
+    </Call>
+    <Call name="addBean">
+      <Arg>
+        <New class="org.eclipse.jetty.plus.jaas.JAASLoginService">
+                  <Set name="name">default</Set>
+          <Set name="loginModuleName">karaf</Set>
+                  <Set name="roleClassNames">
+                        <Array type="java.lang.String">
+                          <Item>org.apache.karaf.jaas.modules.RolePrincipal</Item>
+                        </Array>
+                  </Set>
+        </New>
+      </Arg>
+    </Call-->
+
+    <!-- =========================================================== -->
     <!-- extra options                                               -->
     <!-- =========================================================== -->
     <Set name="stopAtShutdown">true</Set>
@@ -137,4 +171,15 @@
     <Set name="gracefulShutdown">1000</Set>
     <Set name="dumpAfterStart">false</Set>
     <Set name="dumpBeforeStop">false</Set>
+
+    <!-- jetty-jndi by default -->
+    <!--Call class="java.lang.System" name="setProperty">
+      <Arg>java.naming.factory.initial</Arg>
+      <Arg><Property name="java.naming.factory.initial" default="org.eclipse.jetty.jndi.InitialContextFactory"/></Arg>
+    </Call>
+    <Call class="java.lang.System" name="setProperty">
+      <Arg>java.naming.factory.url.pkgs</Arg>
+      <Arg><Property name="java.naming.factory.url.pkgs" default="org.eclipse.jetty.jndi"/></Arg>
+    </Call-->
+
 </Configure>
