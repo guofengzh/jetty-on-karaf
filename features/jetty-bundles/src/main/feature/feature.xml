@@ -7,7 +7,6 @@
     </feature>
 
     <feature description="jetty-bundles" name="jetty-bundles" version="${project.version}">
-        <feature version="${project.version}">pcore</feature>
         <bundle start-level="40">mvn:javax.activation/com.springsource.javax.activation/1.1.0</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty.orbit/javax.annotation/1.1.0.v201108011116</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty.orbit/javax.el/2.2.0.v201108011116</bundle>

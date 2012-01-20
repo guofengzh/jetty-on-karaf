@@ -45,7 +45,6 @@
             <phase>generate-resources</phase>
             <goals>
               <goal>features-generate-descriptor</goal>
-              <goal>features-create-kar</goal>
             </goals>
             <configuration>
               <bundles>src/main/resources/bundles.properties</bundles>

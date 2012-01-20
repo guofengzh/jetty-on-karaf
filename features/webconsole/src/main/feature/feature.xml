@@ -24,7 +24,7 @@
         <bundle start-level="45">mvn:org.apache.felix/org.apache.felix.webconsole/3.1.8</bundle>
     </feature>
     
-    <feature description="sample" name="sample" version="0.0.1-SNAPSHOT">
+    <feature description="sample" name="sample" version="1.0.0-SNAPSHOT">
         <feature version="${project.version}">felix-webconsole</feature>
         <bundle start-level="45">mvn:org.planner/jetty.httpservice.sample/1.0.0-SNAPSHOT</bundle>
         <bundle start-level="45">mvn:org.planner/wab-sample-loginmodule/1.0.0-SNAPSHOT</bundle>
