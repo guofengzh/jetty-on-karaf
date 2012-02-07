@@ -10,12 +10,6 @@ import org.osgi.framework.ServiceReference ;
 import org.ops4j.pax.url.mvn.MavenArtifactResolverService;
 import org.ops4j.pax.url.mvn.ServiceConstants;
 
-/**
- * From a bundle to its location on the filesystem. Assumes the bundle is not a
- * jar.
- *
- * @author hmalphettes
- */
 public class FileLocatorHelperImpl extends DefaultFileLocatorHelper
 {
 
