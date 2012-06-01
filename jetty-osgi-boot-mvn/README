@@ -1,1 +1,3 @@
 use MavenArtifactResolverService published by patch pax-url-aether to sovle mvn url.
+
+This is a fragment attacehd to org.eclipse.jetty.osgi.boot
