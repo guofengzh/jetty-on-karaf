@@ -1,2 +1,2 @@
-Deploy Jetty 8.1 (using jetty-osgi-boot for web bundle support) to Karaf 3.0.0-SNAPSHOT
+Deploy Jetty 8.1.x (using jetty-osgi-boot for web bundle support) to Karaf 3.0.0-SNAPSHOT
 
