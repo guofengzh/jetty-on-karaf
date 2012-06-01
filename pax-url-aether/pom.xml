@@ -2,9 +2,16 @@
 
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+      <groupId>org.planner</groupId>
+      <artifactId>jetty-on-karaf</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+      <relativePath>../pom.xml</relativePath>
+    </parent>
+
+	
     <groupId>org.planner</groupId>
     <artifactId>pax-url-aether</artifactId>
-    <version>1.4-SNAPSHOT</version>
     <packaging>bundle</packaging>
 
     <name>OPS4J Pax Url - aether customized:</name>
@@ -54,7 +61,7 @@
             <groupId>org.ops4j.pax.url</groupId>
             <artifactId>pax-url-aether</artifactId>
             <scope>compile</scope>
-            <version>1.4-SNAPSHOT</version>
+            <version>${pax-url-aether.version}</version>
         </dependency>
 
         <dependency>
