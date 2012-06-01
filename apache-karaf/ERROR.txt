@@ -49,3 +49,11 @@ java.util.ConcurrentModificationException
         at org.apache.karaf.features.internal.FeaturesServiceImpl.startBundle(FeaturesServiceImpl.java:392)
         at org.apache.karaf.features.internal.FeaturesServiceImpl.installFeatures(FeaturesServiceImpl.java:350)
         at org.apache.karaf.features.internal.FeaturesServiceImpl$1.run(FeaturesServiceImpl.java:1006)
+
+if see the following when launch Kara, this means that the jar in startup.properties is not installed in system directory beforehand
+Could not create framework: java.lang.Exception: Aborting due to missing startup bundles
+java.lang.Exception: Aborting due to missing startup bundles
+        at org.apache.karaf.main.Main.processConfigurationProperties(Main.java:1119)
+        at org.apache.karaf.main.Main.loadStartupProperties(Main.java:932)
+        at org.apache.karaf.main.Main.launch(Main.java:293)
+        at org.apache.karaf.main.Main.main(Main.java:498)
