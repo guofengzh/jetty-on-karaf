@@ -7,9 +7,9 @@
       
   <properties>
     <this.project.version>1.0.0-SNAPSHOT</this.project.version>
-    <jetty.version>8.1.4.v20120524</jetty.version>
+    <jetty.version>8.1.5.v20120716</jetty.version>
     <karaf.version>3.0.0-SNAPSHOT</karaf.version>
-	<pax-url-aether.version>1.4.0.RC1</pax-url-aether.version>
+	<pax-url-aether.version>1.4.3-SNAPSHOT</pax-url-aether.version>
     <felix.metatype.version>1.0.4</felix.metatype.version>
     <felix.eventadmin-plugin.version>1.0.2</felix.eventadmin-plugin.version>
 	<org.osgi.compendium.version>4.2.0</org.osgi.compendium.version>
@@ -145,4 +145,18 @@
       <module>apache-karaf</module>
     </modules>
 
+    <build>
+    
+      <pluginManagement>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>maven-bundle-plugin</artifactId>
+             <version>2.3.7</version>
+            <extensions>true</extensions>
+          </plugin>
+        </plugins>
+      </pluginManagement>
+    </build>
+	
 </project>

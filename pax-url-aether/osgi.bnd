@@ -17,7 +17,6 @@ Import-Package:\
   org.apache.log4j,\
   javax.net.ssl,\
   javax.xml.parsers,\
-  org.apache.commons.logging; version="1.0.4"; resolution:=optional,\
   org.osgi.framework; version="[1.0.0,2.0.0)",\
   org.osgi.service.cm; version="[1.0.0,2.0.0)"; resolution:=optional,\
   org.osgi.service.url; version="[1.0.0,2.0.0)",\
@@ -26,7 +25,16 @@ Import-Package:\
   javax.annotation,\
   javax.naming,\
   javax.net,\
-  org.xml.sax.helpers
+  org.xml.sax.helpers,\
+  !org.slf4j.impl,\
+  javax.annotation.processing; resolution:=optional,\
+  javax.lang.model; resolution:=optional,\
+  javax.lang.model.element; resolution:=optional,\
+  javax.lang.model.util; resolution:=optional,\
+  javax.tools; resolution:=optional,\
+  org.junit; resolution:=optional,\
+  org.osgi.util.tracker,\
+  org.testng.annotations; resolution:=optional
 
 Export-Package:\
   ${bundle.namespace}; version="${pom.version}"
@@ -45,7 +53,7 @@ Private-Package:\
   com.google.common.*
   
 Embed-Dependency:\
-  *; scope=compile; type=!pom; inline=true
+  *; scope=compile; type=!pom; inline=true; groupId=!org.slf4j
 
 Embed-Transitive: true
 
