@@ -58,7 +58,7 @@ import org.ops4j.pax.url.maven.commons.MavenRepositoryURL;
 import org.ops4j.pax.url.mvn.internal.ManualWagonProvider;
 import org.ops4j.pax.url.mvn.internal.LogAdapter; 
 
-import static org.ops4j.pax.url.mvn.internal.Parser.*;
+import static org.ops4j.pax.url.mvn.Parser.*;
 
 /**
  * Aether based, drop in replacement for mvn protocol

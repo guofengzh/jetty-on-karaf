@@ -7,7 +7,7 @@ import java.net.URL;
 
 import org.ops4j.pax.url.maven.commons.MavenConfiguration;
 import org.ops4j.pax.url.mvn.MavenArtifactResolverService;
-import org.ops4j.pax.url.mvn.internal.Parser;
+import org.ops4j.pax.url.mvn.Parser;
 
 public class MavenArtifactResolverServiceImpl implements MavenArtifactResolverService {
 
