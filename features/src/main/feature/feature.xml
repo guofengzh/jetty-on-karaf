@@ -36,7 +36,7 @@
 	
     <feature description="core feature" version="${project.version}" name="pcore">
         <bundle start="true" start-level="5">mvn:org.osgi/org.osgi.compendium/${org.osgi.compendium.version}</bundle>
-        <bundle start="true" start-level="5">mvn:org.planner/pax-url-aether/${project.version}</bundle>
+        <bundle start="true" start-level="5">mvn:org.planner/pax-url-aether/${pax-url-aether.version}</bundle>
     </feature>
 
     <feature description="Felix Web Console" name="felix-webconsole" version="${project.version}" resolver="(obr)">

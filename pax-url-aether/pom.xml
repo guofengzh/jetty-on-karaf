@@ -13,6 +13,7 @@
     <groupId>org.planner</groupId>
     <artifactId>pax-url-aether</artifactId>
     <packaging>bundle</packaging>
+	<version>${pax-url-aether.version}</version>
 
     <name>OPS4J Pax Url - aether customized:</name>
     <description>

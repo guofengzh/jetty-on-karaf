@@ -303,7 +303,7 @@ public class AetherBasedResolver2File {
     {
         DefaultServiceLocator locator = new DefaultServiceLocator();
 
-        locator.setServices( WagonProvider.class, new ManualWagonProvider() );
+        locator.setServices( WagonProvider.class, new ManualWagonProvider( 5 * 1000) );
         locator.addService( RepositoryConnectorFactory.class, WagonRepositoryConnectorFactory.class );
 
         locator.setService( LocalRepositoryManagerFactory.class, SimpleLocalRepositoryManagerFactory.class );

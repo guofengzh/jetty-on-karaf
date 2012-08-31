@@ -1,3 +1,5 @@
 patch pax-url-aether to publish MavenArtifactResolverService, which will resolve mvn url to File.
 
-TODO: need to review the code to see if the still works well with the current par url implementation.
+TODO: 
+ locator.setServices( WagonProvider.class, new ManualWagonProvider( 5 * 1000) ); 5 * 1000 is the right timeout setting?
+ 

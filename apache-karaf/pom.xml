@@ -17,7 +17,7 @@
   
   <dependencies>
     <dependency>
-      <groupId>org.apache.karaf.assemblies</groupId>
+      <groupId>org.apache.karaf</groupId>
       <artifactId>apache-karaf</artifactId>
       <version>${karaf.version}</version>
       <type>tar.gz</type>
@@ -93,7 +93,7 @@
           <configuration>
             <artifactItems>
                <artifactItem>
-                 <groupId>org.apache.karaf.assemblies</groupId>
+                 <groupId>org.apache.karaf</groupId>
                  <artifactId>apache-karaf</artifactId>
                  <type>tar.gz</type>
                  <outputDirectory>target/dependencies</outputDirectory>
