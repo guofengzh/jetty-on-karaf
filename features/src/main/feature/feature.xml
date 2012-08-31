@@ -41,9 +41,13 @@
 
     <feature description="Felix Web Console" name="felix-webconsole" version="${project.version}" resolver="(obr)">
         <feature version="${project.version}">jetty-bundles</feature>
+		<!-- the following three bundles are required by web console 4.0 -->
+        <bundle start-level="42">mvn:org.json/com.springsource.org.json/1.0.0</bundle>
+        <bundle start-level="42">mvn:commons-io/commons-io/2.4</bundle>
+        <bundle start-level="42">mvn:commons-fileupload/commons-fileupload/1.2.2</bundle>
         <bundle start-level="42">mvn:org.apache.felix/org.apache.felix.http.jetty.httpservice/1.0.0</bundle>
-        <bundle start-level="45">mvn:org.apache.felix/org.apache.felix.scr/1.6.0</bundle>
-        <bundle start-level="45">mvn:org.apache.felix/org.apache.felix.webconsole/3.1.8</bundle>
+        <bundle start-level="45">mvn:org.apache.felix/org.apache.felix.scr/${felix.scr}</bundle>
+        <bundle start-level="45">mvn:org.apache.felix/org.apache.felix.webconsole/${felix.web.console}</bundle>
     </feature>
     
     <feature description="sample" name="sample" version="1.0.0-SNAPSHOT">
