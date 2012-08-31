@@ -9,6 +9,7 @@
       <relativePath>../pom.xml</relativePath>
     </parent>
 
+	<!-- this bundle is also referenced in startup.properties -->
 	
     <groupId>org.planner</groupId>
     <artifactId>pax-url-aether</artifactId>
