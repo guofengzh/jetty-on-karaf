@@ -20,12 +20,18 @@
   </properties>
   
   <dependencies>
-    <!--dependency>
-      <groupId>org.eclipse.jetty.osgi</groupId>
-      <artifactId>jetty-osgi-boot</artifactId>
-      <version>${project.version}</version>
-    </dependency-->
+    <dependency>
+      <groupId>org.eclipse.jetty</groupId>
+      <artifactId>jetty-deploy</artifactId>
+      <version>${jetty.version}</version>
+    </dependency>
 
+    <dependency>
+      <groupId>org.eclipse.jetty</groupId>
+      <artifactId>jetty-util</artifactId>
+      <version>${jetty.version}</version>
+    </dependency>
+	
    <dependency>
       <groupId>org.eclipse.jetty.osgi</groupId>
       <artifactId>jetty-osgi-boot</artifactId>
@@ -119,6 +125,22 @@
           <version>2.5</version>
         </plugin>
 
+<!--
+NOTE: This is a fragment bundle. The bundle it attached will reference some packages but this fragment does not reference them,
+      so for the fragement to be processed by the maven-bundle-plugin, the following is added:
+						   !org.osgi.service.event,
+						   !org.eclipse.jetty.deploy,
+						   !org.eclipse.jetty.util.log,
+or you will get
+[ERROR] Bundle org.eclipse.jetty.osgi:jetty-osgi-boot-mvn:bundle:8.1.7.v20120910 : Unresolved references to [org.eclipse
+.jetty.deploy, org.eclipse.jetty.util.log, org.osgi.service.event] by class(es) on the Bundle-Classpath[Jar:dot]: [org/e
+clipse/jetty/osgi/boot/utils/BundleClassLoaderHelperFactory.class, org/eclipse/jetty/osgi/boot/utils/EventSender.class,
+org/eclipse/jetty/osgi/boot/utils/WebappRegistrationCustomizer.class, org/eclipse/jetty/osgi/boot/utils/OSGiClassLoader.
+class]
+
+the unresolved references are the packagegs referenced by the attached bundle.	  
+-->
+		
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
@@ -138,6 +160,9 @@
                         <Import-Package>
 						   !org.eclipse.jetty.osgi.boot.*,
 						   !org.osgi.framework,
+						   !org.osgi.service.event,
+						   !org.eclipse.jetty.deploy,
+						   !org.eclipse.jetty.util.log,
                            org.ops4j.pax.url.mvn;version="[1.0.0,2.0.0)"
                         </Import-Package>
                         <Bundle-RequiredExecutionEnvironment>JavaSE-1.6</Bundle-RequiredExecutionEnvironment> 

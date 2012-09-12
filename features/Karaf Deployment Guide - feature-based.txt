@@ -28,3 +28,32 @@ added:
   org.osgi.compendium-4.2.0.jar=5
   servlet-api-3.0.jar=5
 or requirement in deploy directory cannot be resolved for http service and http servlet
+
+TODO:
+
+2012-09-12 15:24:34,635 | INFO  | Thread-3         | ContextHandler                   | 79 - org.eclipse.jetty.util - 8.1.7.v20120910 | started o.e.j.w.WebAppContext{/wab-sample,file:/D:/projects/osgi/jetty-on-karaf/mycustom-karaf-1.0.0-SNAPSHOT/jettyhome/work/jetty-0.0.0.0-8080-wab-sample-1.0.0-SNAPSHOT.war-_wab-sample-any-/webapp/},file:/C:/.m2/repository/org/planner/wab-sample/1.0.0-SNAPSHOT/wab-sample-1.0.0-SNAPSHOT.war
+2012-09-12 15:24:34,645 | ERROR | Thread-3         | FeaturesServiceImpl              | 8 - org.apache.karaf.features.core - 3.0.0.SNAPSHOT | Error installing boot features
+java.lang.Exception: Could not start bundle mvn:org.apache.felix/org.apache.felix.http.jetty.httpservice/1.0.0 in feature(s) felix-webconsole-1.0.0-SNAPSHOT: Activator start error in bundle org.apache.felix.http.jetty.httpservice [104].
+	at org.apache.karaf.features.internal.FeaturesServiceImpl.startBundle(FeaturesServiceImpl.java:543)[8:org.apache.karaf.features.core:3.0.0.SNAPSHOT]
+	at org.apache.karaf.features.internal.FeaturesServiceImpl.installFeatures(FeaturesServiceImpl.java:495)[8:org.apache.karaf.features.core:3.0.0.SNAPSHOT]
+	at org.apache.karaf.features.internal.FeaturesServiceImpl$1.run(FeaturesServiceImpl.java:1182)[8:org.apache.karaf.features.core:3.0.0.SNAPSHOT]
+Caused by: org.osgi.framework.BundleException: Activator start error in bundle org.apache.felix.http.jetty.httpservice [104].
+	at org.apache.felix.framework.Felix.activateBundle(Felix.java:2027)[org.apache.felix.framework-4.0.3.jar:]
+	at org.apache.felix.framework.Felix.startBundle(Felix.java:1895)[org.apache.felix.framework-4.0.3.jar:]
+	at org.apache.felix.framework.BundleImpl.start(BundleImpl.java:944)[org.apache.felix.framework-4.0.3.jar:]
+	at org.apache.felix.framework.BundleImpl.start(BundleImpl.java:931)[org.apache.felix.framework-4.0.3.jar:]
+	at org.apache.karaf.features.internal.FeaturesServiceImpl.startBundle(FeaturesServiceImpl.java:540)[8:org.apache.karaf.features.core:3.0.0.SNAPSHOT]
+	... 2 more
+Caused by: java.lang.NoClassDefFoundError: javax/servlet/ServletContextAttributeListener
+	at org.apache.felix.http.base.internal.AbstractHttpActivator.doStart(AbstractHttpActivator.java:44)
+	at org.apache.felix.http.jetty.httpservice.JettyHttpServiceActivator.doStart(JettyHttpServiceActivator.java:28)
+	at org.apache.felix.http.base.internal.AbstractActivator.start(AbstractActivator.java:41)
+	at org.apache.felix.framework.util.SecureAction.startActivator(SecureAction.java:645)
+	at org.apache.felix.framework.Felix.activateBundle(Felix.java:1977)
+	... 6 more
+Caused by: java.lang.ClassNotFoundException: javax.servlet.ServletContextAttributeListener not found by org.apache.felix.http.jetty.httpservice [104]
+	at org.apache.felix.framework.BundleWiringImpl.findClassOrResourceByDelegation(BundleWiringImpl.java:1460)[org.apache.felix.framework-4.0.3.jar:]
+	at org.apache.felix.framework.BundleWiringImpl.access$400(BundleWiringImpl.java:72)[org.apache.felix.framework-4.0.3.jar:]
+	at org.apache.felix.framework.BundleWiringImpl$BundleClassLoader.loadClass(BundleWiringImpl.java:1843)[org.apache.felix.framework-4.0.3.jar:]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:356)[:1.7.0_06]
+	... 11 more

@@ -6,9 +6,10 @@
         <bundle start-level="40">mvn:org.eclipse.jetty.orbit/javax.annotation/1.1.0.v201108011116</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty.orbit/javax.el/2.2.0.v201108011116</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty.orbit/com.sun.el/2.2.0.v201108011116</bundle>
-        <bundle start-level="40">mvn:javax.mail/com.springsource.javax.mail/1.4.1</bundle>
-        <bundle start-level="40">mvn:javax.transaction/com.springsource.javax.transaction/1.1.0</bundle>
-        <bundle start-level="40">mvn:org.objectweb.asm/com.springsource.org.objectweb.asm/3.2.0</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.orbit/javax.mail.glassfish/1.4.1.v201005082020</bundle>
+        <!--bundle start-level="40">mvn:org.eclipse.jetty.orbit/javax.transaction/1.1.1.v201105210645</bundle-->
+		<bundle start-level="40">mvn:javax.transaction/com.springsource.javax.transaction/1.1.0</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.orbit/org.objectweb.asm/3.3.1.v201105211655</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty/jetty-continuation/${jetty.version}</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty/jetty-util/${jetty.version}</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty/jetty-io/${jetty.version}</bundle>
