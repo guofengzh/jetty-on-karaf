@@ -52,6 +52,7 @@
                             org.apache.felix.http.jetty.*,
                         </Private-Package>
                         <Import-Package>
+						    javax.servlet.*;version=3.0,
                             org.slf4j;resolution:=optional,
                             *;resolution:=optional
                         </Import-Package>
