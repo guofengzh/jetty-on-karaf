@@ -25,12 +25,23 @@ import org.osgi.framework.ServiceEvent;
 import org.osgi.framework.ServiceListener;
 import org.osgi.framework.ServiceReference;
 
+/**
+ * Track org.eclipse.jetty.server.handler.ContextHandle. When a web app is deployed by jetty, this service is registered with some properties 
+ * (see org.eclipse.jetty.osgi.boot.OSGiWebappConstants). -- Note that the real case is your first register this sevice with properties point to 
+ * the web app folder path, then jetty deploy the web app. see http://wiki.eclipse.org/Jetty/Feature/Jetty_OSGi
+ * 
+ * This project achieve two purposes:
+ *   (1) function as a web app bundle with the context path "/"
+ *   (2) track the org.eclipse.jetty.server.handler.ContextHandle service. if the sevice's context path is "/", register the HttpService in the
+ *       OSGI registry (to provide the HttpSerrvice service for other bundles to use).
+ */
 public class JettyContextHandlerServiceTracker implements ServiceListener
 {
     private DispatcherServlet dispatcher;
     private final BundleContext context;
 
-    private static String SERVICE_PROP_CONTEXT_PATH = "contextPath" ;
+    /** service property osgi.web.contextpath. See OSGi r4 */
+    public static final String OSGI_WEB_CONTEXTPATH = "osgi.web.contextpath";
 
     public JettyContextHandlerServiceTracker(BundleContext context, DispatcherServlet dispatcher)
     {
@@ -56,7 +67,7 @@ public class JettyContextHandlerServiceTracker implements ServiceListener
             case ServiceEvent.MODIFIED:
             case ServiceEvent.UNREGISTERING:
             {
-            	String contextPath = (String)sr.getProperty( SERVICE_PROP_CONTEXT_PATH ) ;
+            	String contextPath = (String)sr.getProperty( OSGI_WEB_CONTEXTPATH ) ;
             	if ( "/".equals( contextPath ) )
                 	dispatcher.destroy() ;
             }
@@ -71,7 +82,8 @@ public class JettyContextHandlerServiceTracker implements ServiceListener
             }
             case ServiceEvent.REGISTERED:
             {
-            	String contextPath = (String)sr.getProperty( SERVICE_PROP_CONTEXT_PATH ) ;
+            	String contextPath = (String)sr.getProperty( OSGI_WEB_CONTEXTPATH ) ;
+				System.out.println( "Context handler with Context path '" + contextPath + "' deployed" ) ;
             	if ( "/".equals( contextPath ) )
             	{
                     ContextHandler contextHandler = (ContextHandler)context.getService(sr);
