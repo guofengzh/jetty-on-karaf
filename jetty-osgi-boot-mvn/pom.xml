@@ -29,7 +29,7 @@
     <dependency>
         <groupId>org.planner</groupId>
         <artifactId>pax-url-aether</artifactId>
-        <version>${this.project.version}</version>
+        <version>${pax-url-aether.version}</version>
     </dependency>
   </dependencies>
 

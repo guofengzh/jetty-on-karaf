@@ -5,7 +5,7 @@ import java.security.Principal;
 import javax.security.auth.Subject;
 import java.security.acl.Group ;
 
-import org.eclipse.jetty.http.security.Credential;
+import org.eclipse.jetty.util.security.Credential;
 import org.eclipse.jetty.security.MappedLoginService.KnownUser;
 import org.eclipse.jetty.security.MappedLoginService.RolePrincipal;
 import org.eclipse.jetty.server.UserIdentity;
