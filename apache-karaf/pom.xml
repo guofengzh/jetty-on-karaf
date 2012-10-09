@@ -115,9 +115,6 @@
                 <propertiesFile>${project.build.directory}/dependencies/apache-karaf-${karaf.version}/etc/startup.properties</propertiesFile>
                 <propertiesFile>${project.build.outputDirectory}/custom/startup.properties</propertiesFile>
               </propertiesFiles>
-              <excludes>
-	             <exclude>mvn\:org.ops4j.pax.url/pax-url-aether/${pax-url-aether.version}</exclude>
-	          </excludes>			  
             </merge>
             <merge>
               <targetFile>${project.build.outputDirectory}/etc/org.ops4j.pax.url.mvn.cfg</targetFile>

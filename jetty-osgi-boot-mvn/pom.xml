@@ -27,7 +27,7 @@
    </dependency>
 	
     <dependency>
-        <groupId>org.planner</groupId>
+        <groupId>org.ops4j.pax.url</groupId>
         <artifactId>pax-url-aether</artifactId>
         <version>${pax-url-aether.version}</version>
     </dependency>
