@@ -142,7 +142,6 @@
       <module>jetty-httpservice</module>
       <module>jetty-httpservice-sample</module>
       <module>jetty-osgi-boot-mvn</module>
-      <!--module>pax-url-aether</module-->
       <!--module>wab-sample-loginmodule</module-->
       <module>wab-sample</module>
       <module>features</module>
