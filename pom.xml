@@ -15,8 +15,8 @@
     <felix.metatype.version>1.0.4</felix.metatype.version>
     <felix.eventadmin-plugin.version>1.0.2</felix.eventadmin-plugin.version>
 	
-	<org.osgi.compendium.version>4.2.0</org.osgi.compendium.version>
-	<org.osgi.core>4.2.0</org.osgi.core>
+	<org.osgi.compendium.version>4.3.0</org.osgi.compendium.version>
+	<org.osgi.core>4.3.0</org.osgi.core>
   </properties>
   
  <pluginRepositories>
@@ -148,6 +148,24 @@
       <module>apache-karaf</module>
     </modules>
 
+    <dependencyManagement>
+     <dependencies>
+	 
+      <dependency>
+        <groupId>org.osgi</groupId>
+        <artifactId>org.osgi.core</artifactId>
+        <version>${org.osgi.core}</version>
+      </dependency>
+
+	  <dependency>
+        <groupId>org.osgi</groupId>
+        <artifactId>org.osgi.compendium</artifactId>
+        <version>${org.osgi.compendium.version}</version>
+      </dependency>
+
+    </dependencies>
+    </dependencyManagement>
+	
     <build>
     
       <pluginManagement>
