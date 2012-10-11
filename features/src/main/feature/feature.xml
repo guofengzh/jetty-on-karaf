@@ -2,6 +2,9 @@
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0" name="jetty-bundles">
 
     <feature description="jetty-bundles" name="jetty-bundles" version="${project.version}">
+        <!--bundle start-level="40">mvn:javax.servlet/javax.servlet-api/3.0.1</bundle-->
+		<!-- geronimo-servlet_3.0_spec/1.0 export with the package version 2.6 and 3.0 -->
+        <bundle start-level="40">mvn:org.apache.geronimo.specs/geronimo-servlet_3.0_spec/1.0</bundle>
         <bundle start-level="40">mvn:javax.activation/com.springsource.javax.activation/1.1.0</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty.orbit/javax.annotation/1.1.0.v201108011116</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty.orbit/javax.el/2.2.0.v201108011116</bundle>
@@ -14,7 +17,6 @@
         <bundle start-level="40">mvn:org.eclipse.jetty/jetty-util/${jetty.version}</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty/jetty-io/${jetty.version}</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty/jetty-http/${jetty.version}</bundle>
-        <bundle start-level="40">mvn:javax.servlet/javax.servlet-api/3.0.1</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty/jetty-security/${jetty.version}</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty/jetty-server/${jetty.version}</bundle>
         <bundle start-level="40">mvn:org.mortbay.jetty/servlet-api/3.0.20100224</bundle>
@@ -45,7 +47,9 @@
         <bundle start-level="42">mvn:org.json/com.springsource.org.json/1.0.0</bundle>
         <bundle start-level="42">mvn:commons-io/commons-io/2.4</bundle>
         <bundle start-level="42">mvn:commons-fileupload/commons-fileupload/1.2.2</bundle>
+		
         <bundle start-level="42">mvn:org.apache.felix/org.apache.felix.http.jetty.httpservice/1.0.0</bundle>
+		
         <bundle start-level="45">mvn:org.apache.felix/org.apache.felix.scr/${felix.scr}</bundle>
         <bundle start-level="45">mvn:org.apache.felix/org.apache.felix.webconsole/${felix.web.console}</bundle>
     </feature>
