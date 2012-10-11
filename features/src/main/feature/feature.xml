@@ -50,6 +50,38 @@
         <bundle start-level="45">mvn:org.apache.felix/org.apache.felix.webconsole/${felix.web.console}</bundle>
     </feature>
     
+    <feature name="karaf-webconsole" version="3.0.0-SNAPSHOT" description="Base support of the Karaf WebConsole" resolver="(obr)">
+        <config name="org.apache.karaf.webconsole">
+            realm=karaf
+        </config>
+        <feature version="${project.version}">jetty-bundles</feature>
+
+		<!-- pax web dependendent by karaf-webconsole -->
+        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-api/${pax.web.version}</bundle>
+        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-spi/${pax.web.version}</bundle>
+        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-runtime/${pax.web.version}</bundle>
+        <!--bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-jetty/${pax.web.version}</bundle-->
+        <bundle start-level="30">mvn:org.apache.karaf.http/org.apache.karaf.http.core/${karaf.version}</bundle>
+        <bundle start-level="30">mvn:org.apache.karaf.http/org.apache.karaf.http.command/${karaf.version}</bundle>
+
+        <bundle start-level="42">mvn:org.apache.felix/org.apache.felix.http.jetty.httpservice/1.0.0</bundle>
+		
+		<!-- karaf webconsole -->
+        <bundle start-level="30">mvn:org.apache.felix/org.apache.felix.metatype/1.0.4</bundle>
+        <bundle start-level="30">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.branding/${karaf.version}</bundle>
+        <bundle start-level="30">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.console/${karaf.version}</bundle>
+		
+        <bundle start-level="30">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.instance/${karaf.version}</bundle>
+        <bundle start-level="30">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.features/${karaf.version}</bundle>
+        <bundle start-level="30">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.gogo/${karaf.version}</bundle>
+        <bundle start-level="30">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.http/${karaf.version}</bundle>
+
+        <conditional>
+            <condition>eventadmin</condition>
+            <bundle start-level="30">mvn:org.apache.felix/org.apache.felix.webconsole.plugins.event/1.0.2</bundle>
+        </conditional>
+    </feature>
+
     <feature description="sample" name="sample" version="1.0.0-SNAPSHOT">
         <feature version="${project.version}">felix-webconsole</feature>
         <bundle start-level="45">mvn:org.planner/jetty.httpservice.sample/1.0.0-SNAPSHOT</bundle>

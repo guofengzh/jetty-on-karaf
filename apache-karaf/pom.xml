@@ -72,6 +72,7 @@
                    <feature>pcore</feature>
                    <feature>jetty-bundles</feature>
                    <feature>felix-webconsole</feature>
+                   <feature>karaf-webconsole</feature>
                    <feature>sample</feature>
                </features>
                <repository>target/features-repo</repository>

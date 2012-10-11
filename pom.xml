@@ -10,6 +10,7 @@
     <jetty.version>8.1.7.v20120910</jetty.version>
     <karaf.version>3.0.0-SNAPSHOT</karaf.version>
 	<pax-url-aether.version>1.5.1-SNAPSHOT</pax-url-aether.version>
+	<pax.web.version>2.1.0</pax.web.version>
     <felix.scr>1.6.0</felix.scr>
     <felix.web.console>4.0.0</felix.web.console>
     <felix.metatype.version>1.0.4</felix.metatype.version>
