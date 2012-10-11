@@ -28,6 +28,7 @@ public class FileLocatorHelperImpl extends DefaultFileLocatorHelper
     public File getBundleInstallLocation(Bundle bundle) throws Exception
     {
     	String loc = bundle.getLocation() ;
+	
     	if ( loc.startsWith( "mvn:") )
     	{
 			BundleContext bundleContext = bundle.getBundleContext() ;
@@ -41,8 +42,10 @@ public class FileLocatorHelperImpl extends DefaultFileLocatorHelper
 				InputStream in = connection.getInputStream() ;
 				String outFileName = createFileName( bundle, url ) ;
 				File outFile = bundle.getDataFile( outFileName ) ;
-				if ( !outFile.exists() ) {
+				if ( !outFile.exists() || outFile.lastModified() < bundle.getLastModified() ) {
+				   // The cache does not exist or older than the bundle
 				   saveIt( in, outFile  ) ;
+				   outFile.setLastModified( bundle.getLastModified() ) ;
 				   log.info( "catch {} to {}", loc, outFile.toString() ) ;
 				}
 				in.close() ;
