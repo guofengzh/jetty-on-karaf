@@ -44,7 +44,7 @@ public class FileLocatorHelperImpl extends DefaultFileLocatorHelper
 				File outFile = bundle.getDataFile( outFileName ) ;
 				if ( !outFile.exists() || outFile.lastModified() < bundle.getLastModified() ) {
 				   // The cache does not exist or older than the bundle
-				   saveIt( in, outFile  ) ;
+				   mackeCopy( in, outFile  ) ;
 				   outFile.setLastModified( bundle.getLastModified() ) ;
 				   log.info( "catch {} to {}", loc, outFile.toString() ) ;
 				}
@@ -58,7 +58,7 @@ public class FileLocatorHelperImpl extends DefaultFileLocatorHelper
     	   return super.getBundleInstallLocation(bundle) ;
     }
     
-    private void saveIt( InputStream in, File outFile ) throws IOException {
+    private void mackeCopy( InputStream in, File outFile ) throws IOException {
     	byte[] buffer = new byte[ 1024 * 100 ];
     	int len;
     	OutputStream out = new FileOutputStream( outFile ) ;
