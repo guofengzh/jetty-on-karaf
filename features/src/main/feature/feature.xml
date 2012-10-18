@@ -63,7 +63,7 @@
 		<!-- pax web dependendent by karaf-webconsole -->
         <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-api/${pax.web.version}</bundle>
         <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-spi/${pax.web.version}</bundle>
-        <bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-runtime/${pax.web.version}</bundle>
+        <!--bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-runtime/${pax.web.version}</bundle-->
         <!--bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-jetty/${pax.web.version}</bundle-->
         <bundle start-level="30">mvn:org.apache.karaf.http/org.apache.karaf.http.core/${karaf.version}</bundle>
         <bundle start-level="30">mvn:org.apache.karaf.http/org.apache.karaf.http.command/${karaf.version}</bundle>
