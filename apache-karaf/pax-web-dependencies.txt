@@ -1,0 +1,22 @@
+Karaf WebConsole HTTP plugin depends on pax-web.
+
+The following is the module dependencies of pax-web:
+       pax-web-api
+	       ^
+		   |
+	   pax-web-spi
+	     ^    ^
+		 |    |
+		 |  pax-web-runtime
+		 |           ^
+    pax-web-jetty    |
+	     ^           |
+		 |           |
+	pax-web-jetty-bundle
+	
+NOTE
+   1. org.apache.karaf.webconsole.http depends on pax-web-spi
+   2. org.apache.karaf.http.core depends on pax-web-spi
+   3. pax-web-runtime establish the http service
+   4. pax-web-jetty establish the Jetty server instance.
+   5. pax-web-jetty-bundle is the single bundle distribution that combine pax-web-jetty and pax-web-runtime and their dependencies.
