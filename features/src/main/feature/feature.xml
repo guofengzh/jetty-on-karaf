@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0" name="jetty-on-karaf">
 
-    <feature description="jetty-bundles" name="jetty-bundles" version="${project.version}">
+    <feature description="jetty-bundles" name="jetty-bundles" version="${jetty.version}">
         <!--bundle start-level="40">mvn:javax.servlet/javax.servlet-api/3.0.1</bundle-->
 		<!-- geronimo-servlet_3.0_spec/1.0 export with the package version 2.6 and 3.0 -->
         <bundle start-level="40">mvn:org.apache.geronimo.specs/geronimo-servlet_3.0_spec/1.0</bundle>
@@ -42,7 +42,7 @@
     </feature>
 
     <feature description="HttpService Support" version="${project.version}" name="httpservice">
-        <feature version="${project.version}">jetty-bundles</feature>
+        <feature version="${jetty.version}">jetty-bundles</feature>
         <bundle start-level="42">mvn:org.apache.felix/org.apache.felix.http.jetty.httpservice/1.0.0</bundle>		
     </feature>
 
@@ -90,7 +90,7 @@
     </feature>
 	
 	<feature description="Karaf Manual" name="manual" version="${karaf.version}">
-        <feature version="${project.version}">jetty-bundles</feature>
+        <feature version="${jetty.version}">jetty-bundles</feature>
         <bundle start-level="4">mvn:org.apache.karaf/manual/${karaf.version}/war</bundle>
 	</feature>
 
