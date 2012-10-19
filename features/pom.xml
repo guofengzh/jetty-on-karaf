@@ -45,6 +45,8 @@
             <phase>generate-resources</phase>
             <goals>
               <goal>features-generate-descriptor</goal>
+              <!--goal>features-add-to-repository</goal-->
+              <!--goal>features-validate-descriptor</goal-->
             </goals>
             <configuration>
               <bundles>src/main/resources/bundles.properties</bundles>
