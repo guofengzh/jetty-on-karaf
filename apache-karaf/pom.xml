@@ -117,13 +117,6 @@
                 <propertiesFile>${project.build.outputDirectory}/custom/startup.properties</propertiesFile>
               </propertiesFiles>
             </merge>
-            <merge>
-              <targetFile>${project.build.outputDirectory}/etc/org.ops4j.pax.url.mvn.cfg</targetFile>
-              <propertiesFiles>
-                <propertiesFile>${project.build.directory}/dependencies/apache-karaf-${karaf.version}/etc/org.ops4j.pax.url.mvn.cfg</propertiesFile>
-                <propertiesFile>${project.build.outputDirectory}/custom/org.ops4j.pax.url.mvn.cfg</propertiesFile>
-              </propertiesFiles>
-            </merge>
           </merges>
         </configuration>
         <executions>
