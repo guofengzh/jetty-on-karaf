@@ -10,5 +10,3 @@ Usage(Windows):
    7. On the Karaf Console, run "feature:install -v karaf-webconsole"
    8. To access the web console, use "http://localhost:8080/system/console/bundles", type "karaf" for username and "karaf" for password.
 
-NOTE: for my enviornment, the local maven repository to located in c:/.m2. If you use the default local maven repository, remove the following line in org.ops4j.pax.url.mvn.cfg before you run "bin\karaf":
-    org.ops4j.pax.url.mvn.settings=file:/c:/.m2/settings.xml
