@@ -11,18 +11,15 @@
         <directory>target/dependencies/apache-karaf-${karaf.version}</directory>
         <outputDirectory>/</outputDirectory>
         <excludes>
-          <exclude>etc/org.ops4j.pax.url.mvn.cfg</exclude>
-          <exclude>etc/org.apache.karaf.features.cfg</exclude>
           <exclude>etc/custom.properties</exclude>
-          <exclude>etc/startup.properties</exclude>
           <exclude>bin/karaf.bat</exclude>
         </excludes>
      </fileSet>
      
-     <fileSet>
+     <!--fileSet>
         <directory>target/classes/etc</directory>
         <outputDirectory>/etc/</outputDirectory>
-    </fileSet>
+    </fileSet-->
     <fileSet>
       <directory>target/features-repo</directory>
       <outputDirectory>/system</outputDirectory>

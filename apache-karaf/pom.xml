@@ -30,7 +30,7 @@
   </dependencies>
   
   <build>
-    <resources>
+    <!--resources>
       <resource>
         <directory>${basedir}/src/main/filtered-resources</directory>
         <filtering>true</filtering>
@@ -38,7 +38,7 @@
           <include>**/*</include>
         </includes>
       </resource>
-    </resources>
+    </resources-->
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -69,7 +69,7 @@
                    <descriptor>mvn:org.planner/jetty-on-karaf-features/${project.version}/xml/features</descriptor>
                </descriptors>
                <features>
-                   <feature>pcore</feature>
+                   <feature>cmpn</feature>
                    <feature>jetty-bundles</feature>
                    <feature>felix-webconsole</feature>
                    <feature>karaf-webconsole</feature>
@@ -104,7 +104,7 @@
        </execution>
     </executions>
    </plugin>
-    <plugin>
+    <!--plugin>
         <groupId>org.planner</groupId>
         <artifactId>merge-properties-maven-plugin</artifactId>
         <version>1.0.0</version>
@@ -127,7 +127,7 @@
             </goals>
           </execution>
         </executions>
-    </plugin>   
+    </plugin-->   
    <plugin>
       <groupId>org.apache.maven.plugins</groupId>
       <artifactId>maven-assembly-plugin</artifactId>

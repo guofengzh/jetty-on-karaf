@@ -2,8 +2,9 @@
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0" name="jetty-on-karaf">
 
     <feature description="jetty-bundles" name="jetty-bundles" version="${jetty.version}">
+        <feature version="${org.osgi.compendium.version}">cmpn</feature>
         <!--bundle start-level="40">mvn:javax.servlet/javax.servlet-api/3.0.1</bundle-->
-		<!-- geronimo-servlet_3.0_spec/1.0 export with the package version 2.6 and 3.0 -->
+	<!-- geronimo-servlet_3.0_spec/1.0 export with the package version 2.6 and 3.0 -->
         <bundle start-level="40">mvn:org.apache.geronimo.specs/geronimo-servlet_3.0_spec/1.0</bundle>
         <bundle start-level="40">mvn:javax.activation/com.springsource.javax.activation/1.1.0</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty.orbit/javax.annotation/1.1.0.v201108011116</bundle>
@@ -11,7 +12,7 @@
         <bundle start-level="40">mvn:org.eclipse.jetty.orbit/com.sun.el/2.2.0.v201108011116</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty.orbit/javax.mail.glassfish/1.4.1.v201005082020</bundle>
         <!--bundle start-level="40">mvn:org.eclipse.jetty.orbit/javax.transaction/1.1.1.v201105210645</bundle-->
-		<bundle start-level="40">mvn:javax.transaction/com.springsource.javax.transaction/1.1.0</bundle>
+	<bundle start-level="40">mvn:javax.transaction/com.springsource.javax.transaction/1.1.0</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty.orbit/org.objectweb.asm/3.3.1.v201105211655</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty/jetty-continuation/${jetty.version}</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty/jetty-util/${jetty.version}</bundle>
@@ -37,7 +38,7 @@
         <bundle start-level="40">mvn:org.eclipse.jetty.osgi/jetty-osgi-boot-mvn/${jetty.version}</bundle>
     </feature>
 	
-    <feature description="core feature" version="${project.version}" name="pcore">
+    <feature description="compendium service feature" version="${org.osgi.compendium.version}" name="cmpn">
         <bundle start="true" start-level="5">mvn:org.osgi/org.osgi.compendium/${org.osgi.compendium.version}</bundle>
     </feature>
 
