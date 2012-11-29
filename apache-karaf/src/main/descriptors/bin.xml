@@ -13,6 +13,7 @@
         <excludes>
           <exclude>etc/custom.properties</exclude>
           <exclude>bin/karaf.bat</exclude>
+          <exclude>bin/karaf</exclude>
         </excludes>
      </fileSet>
      
@@ -31,7 +32,14 @@
       <outputDirectory>/</outputDirectory>
       <fileMode>0644</fileMode>
    </fileSet>
-
   </fileSets>
-  
+
+  <dependencySets>
+    <dependencySet>
+      <outputDirectory>/lib</outputDirectory>
+      <includes>
+        <include>org.mortbay.jetty.npn:npn-boot</include>
+      </includes>
+    </dependencySet>
+  </dependencySets>  
 </assembly>
