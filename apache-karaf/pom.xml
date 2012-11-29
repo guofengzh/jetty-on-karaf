@@ -23,9 +23,9 @@
       <type>tar.gz</type>
     </dependency>
     <dependency>
-       <groupId>org.osgi</groupId>
-       <artifactId>org.osgi.compendium</artifactId>
-       <version>4.2.0</version>
+      <groupId>org.mortbay.jetty.npn</groupId>
+      <artifactId>npn-boot</artifactId>
+      <version>1.1.1.v20121030</version>
     </dependency>
   </dependencies>
   
