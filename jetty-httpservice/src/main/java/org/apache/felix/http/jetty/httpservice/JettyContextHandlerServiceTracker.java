@@ -20,6 +20,7 @@ import org.apache.felix.http.base.internal.DispatcherServlet;
 import org.eclipse.jetty.server.handler.ContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.webapp.WebAppContext;
+import org.eclipse.jetty.osgi.boot.OSGiWebappConstants;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceEvent;
 import org.osgi.framework.ServiceListener;
@@ -41,7 +42,7 @@ public class JettyContextHandlerServiceTracker implements ServiceListener
     private final BundleContext context;
 
     /** service property osgi.web.contextpath. See OSGi r4 */
-    public static final String OSGI_WEB_CONTEXTPATH = "osgi.web.contextpath";
+    //public static final String OSGI_WEB_CONTEXTPATH = "osgi.web.contextpath";
 
     public JettyContextHandlerServiceTracker(BundleContext context, DispatcherServlet dispatcher)
     {
@@ -67,7 +68,7 @@ public class JettyContextHandlerServiceTracker implements ServiceListener
             case ServiceEvent.MODIFIED:
             case ServiceEvent.UNREGISTERING:
             {
-            	String contextPath = (String)sr.getProperty( OSGI_WEB_CONTEXTPATH ) ;
+            	String contextPath = (String)sr.getProperty( OSGiWebappConstants.SERVICE_PROP_CONTEXT_PATH ) ;
             	if ( "/".equals( contextPath ) )
                 	dispatcher.destroy() ;
             }
@@ -82,7 +83,7 @@ public class JettyContextHandlerServiceTracker implements ServiceListener
             }
             case ServiceEvent.REGISTERED:
             {
-            	String contextPath = (String)sr.getProperty( OSGI_WEB_CONTEXTPATH ) ;
+            	String contextPath = (String)sr.getProperty( OSGiWebappConstants.SERVICE_PROP_CONTEXT_PATH ) ;
 				System.out.println( "Context handler with Context path '" + contextPath + "' deployed" ) ;
             	if ( "/".equals( contextPath ) )
             	{
