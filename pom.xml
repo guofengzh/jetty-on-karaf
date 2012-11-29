@@ -7,7 +7,7 @@
       
   <properties>
     <this.project.version>1.0.0-SNAPSHOT</this.project.version>
-    <jetty.version>8.1.7.v20120910</jetty.version>
+    <jetty.version>8.1.8.v20121106</jetty.version>
     <karaf.version>3.0.0-SNAPSHOT</karaf.version>
 	<pax-url-aether.version>1.5.1-SNAPSHOT</pax-url-aether.version>
 	<pax.web.version>2.1.0</pax.web.version>

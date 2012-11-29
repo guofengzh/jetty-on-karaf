@@ -13,6 +13,7 @@
         <excludes>
           <exclude>etc/custom.properties</exclude>
           <exclude>bin/karaf.bat</exclude>
+          <exclude>bin/karaf</exclude>
         </excludes>
      </fileSet>
      
