@@ -9,5 +9,5 @@ Usage:
    6. On the Karaf Console, run:
       karaf@root()> feature:repo-add mvn:org.planner/jetty-on-karaf-features/1.0.0-SNAPSHOT/xml/features
       karaf@root()> feature:install -v karaf-webconsole
-   7. To access the web console, use "http://localhost:8080/system/console/bundles", type "karaf" for username and "karaf" for password.
+   7. To access the web console, use "http://localhost:8080/system/console", type "karaf" for username and "karaf" for password.
 
