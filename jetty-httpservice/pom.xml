@@ -32,7 +32,14 @@
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <build>
+    <properties>
+      <jetty.version>9.0.0.M3</jetty.version>
+      <felix.http.version>2.2.0</felix.http.version>
+      <org.osgi.compendium.version>4.3.0</org.osgi.compendium.version>
+      <org.osgi.core>4.3.0</org.osgi.core>
+    </properties>
+
+   <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.felix</groupId>
@@ -70,46 +77,46 @@
       <dependency>
         <groupId>org.osgi</groupId>
         <artifactId>org.osgi.core</artifactId>
-	<version>4.3.0</version>
+	<version>${org.osgi.core}</version>
       </dependency>
       <dependency>
         <groupId>org.osgi</groupId>
         <artifactId>org.osgi.compendium</artifactId>
-	<version>4.3.0</version>
+	<version>${org.osgi.compendium.version}</version>
      </dependency>
      <dependency>
       <groupId>org.eclipse.jetty</groupId>
       <artifactId>jetty-server</artifactId>
-      <version>9.0.0.M3</version>
+      <version>${jetty.version}</version>
       <scope>provided</scope>
      </dependency>
      <dependency>
       <groupId>org.eclipse.jetty</groupId>
       <artifactId>jetty-servlet</artifactId>
-      <version>9.0.0.M3</version>
+      <version>${jetty.version}</version>
       <scope>provided</scope>
      </dependency>
      <dependency>
       <groupId>org.eclipse.jetty</groupId>
       <artifactId>jetty-webapp</artifactId>
-      <version>9.0.0.M3</version>
+      <version>${jetty.version}</version>
       <scope>provided</scope>
      </dependency>
      <dependency>
       <groupId>org.eclipse.jetty.osgi</groupId>
       <artifactId>jetty-osgi-boot</artifactId>
-      <version>9.0.0.M3</version>
+      <version>${jetty.version}</version>
       <scope>provided</scope>
      </dependency>
      <dependency>
        <groupId>org.apache.felix</groupId>
        <artifactId>org.apache.felix.http.api</artifactId>
-       <version>2.2.0</version>
+       <version>${felix.http.version}</version>
      </dependency>
      <dependency>
        <groupId>org.apache.felix</groupId>
        <artifactId>org.apache.felix.http.base</artifactId>
-       <version>2.2.0</version>
+       <version>${felix.http.version}</version>
      </dependency>
     </dependencies>
 

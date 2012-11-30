@@ -20,6 +20,7 @@ import org.apache.felix.http.base.internal.DispatcherServlet;
 import org.eclipse.jetty.server.handler.ContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.webapp.WebAppContext;
+import org.eclipse.jetty.osgi.boot.JettyBootstrapActivator;
 import org.eclipse.jetty.osgi.boot.OSGiWebappConstants;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceEvent;
@@ -40,9 +41,6 @@ public class JettyContextHandlerServiceTracker implements ServiceListener
 {
     private DispatcherServlet dispatcher;
     private final BundleContext context;
-
-    /** service property osgi.web.contextpath. See OSGi r4 */
-    //public static final String OSGI_WEB_CONTEXTPATH = "osgi.web.contextpath";
 
     public JettyContextHandlerServiceTracker(BundleContext context, DispatcherServlet dispatcher)
     {
@@ -68,6 +66,14 @@ public class JettyContextHandlerServiceTracker implements ServiceListener
             case ServiceEvent.MODIFIED:
             case ServiceEvent.UNREGISTERING:
             {
+            	/*
+            	 * o.e.j.osig.boot.WebBundleTrackerCustomizer check if a bundle is a web bundle. 
+            	 * If yes, if will invoke:
+            	 *   JettyBootstrapActivator.registerWebapplication(bundle, warFolderRelativePath, contextPath);
+            	 * JettyBootstrapActivator.registerWebapplication() simply instantiate a WebAppContext, then publish
+            	 * it as the service of ContextHandler. JettyContextHandlerServiceTracker track the service, 
+            	 * deploy the web bundle using WebBundleDeployHelper.
+            	 */
             	String contextPath = (String)sr.getProperty( OSGiWebappConstants.SERVICE_PROP_CONTEXT_PATH ) ;
             	if ( "/".equals( contextPath ) )
                 	dispatcher.destroy() ;
