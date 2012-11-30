@@ -66,14 +66,6 @@ public class JettyContextHandlerServiceTracker implements ServiceListener
             case ServiceEvent.MODIFIED:
             case ServiceEvent.UNREGISTERING:
             {
-            	/*
-            	 * o.e.j.osig.boot.WebBundleTrackerCustomizer check if a bundle is a web bundle. 
-            	 * If yes, if will invoke:
-            	 *   JettyBootstrapActivator.registerWebapplication(bundle, warFolderRelativePath, contextPath);
-            	 * JettyBootstrapActivator.registerWebapplication() simply instantiate a WebAppContext, then publish
-            	 * it as the service of ContextHandler. JettyContextHandlerServiceTracker track the service, 
-            	 * deploy the web bundle using WebBundleDeployHelper.
-            	 */
             	String contextPath = (String)sr.getProperty( OSGiWebappConstants.SERVICE_PROP_CONTEXT_PATH ) ;
             	if ( "/".equals( contextPath ) )
                 	dispatcher.destroy() ;
@@ -89,6 +81,14 @@ public class JettyContextHandlerServiceTracker implements ServiceListener
             }
             case ServiceEvent.REGISTERED:
             {
+            	/*
+            	 * o.e.j.osig.boot.WebBundleTrackerCustomizer check if a bundle is a web bundle. 
+            	 * If yes, if will invoke:
+            	 *   JettyBootstrapActivator.registerWebapplication(bundle, warFolderRelativePath, contextPath);
+            	 * JettyBootstrapActivator.registerWebapplication() simply instantiate a WebAppContext, then publish
+            	 * it as the service of ContextHandler. JettyContextHandlerServiceTracker track the service, 
+            	 * deploy the web bundle using WebBundleDeployHelper.
+            	 */
             	String contextPath = (String)sr.getProperty( OSGiWebappConstants.SERVICE_PROP_CONTEXT_PATH ) ;
 				System.out.println( "Context handler with Context path '" + contextPath + "' deployed" ) ;
             	if ( "/".equals( contextPath ) )
