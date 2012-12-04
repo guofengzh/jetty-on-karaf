@@ -36,7 +36,7 @@
 
   <dependencySets>
     <dependencySet>
-      <outputDirectory>/lib</outputDirectory>
+      <outputDirectory>/</outputDirectory>
       <includes>
         <include>org.mortbay.jetty.npn:npn-boot</include>
       </includes>

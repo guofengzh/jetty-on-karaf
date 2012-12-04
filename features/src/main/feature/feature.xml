@@ -2,7 +2,7 @@
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0" name="jetty-on-karaf">
 
     <feature description="jetty-bundles" name="jetty-bundles" version="${jetty.version}">
-        <feature version="${org.osgi.compendium.version}">cmpn</feature>
+        <!--feature version="${org.osgi.compendium.version}">cmpn</feature-->
         
         <!-- 3rd party -->
         <!--bundle start-level="40">mvn:javax.servlet/javax.servlet-api/3.0.1</bundle-->
