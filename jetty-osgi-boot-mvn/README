@@ -1,3 +1,5 @@
 use MavenArtifactResolverService published by patch pax-url-aether to sovle mvn url.
 
 This is a fragment attacehd to org.eclipse.jetty.osgi.boot
+
+Note: Jetty has built in support for Felix so "mvn:" is not required and this module is not required.
