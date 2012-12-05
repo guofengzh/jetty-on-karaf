@@ -41,5 +41,12 @@
         <include>org.mortbay.jetty.npn:npn-boot</include>
       </includes>
     </dependencySet>
+    <dependencySet>
+      <outputDirectory>/lib/ext</outputDirectory>
+      <includes>
+        <include>org.bouncycastle:bcpg-jdk15on</include>
+        <!--include>org.bouncycastle:bcprov-ext-jdk15on</include-->
+      </includes>
+    </dependencySet>
   </dependencySets>  
 </assembly>

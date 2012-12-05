@@ -1,0 +1,11 @@
+Deploy Security Provider
+
+/etc/config.properties:
+org.apache.karaf.security.providers = org.bouncycastle.jce.provider.BouncyCastleProvider
+
+org.osgi.framework.bootdelegation = ...,org.bouncycastle*
+
+NPN:
+org.osgi.framework.bootdelegation = ...,org.eclipse.jetty.npn
+
+
