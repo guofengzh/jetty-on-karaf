@@ -57,7 +57,7 @@
         <!-- Jetty OSGi boot -->
         <bundle start-level="40">mvn:org.eclipse.jetty.osgi/jetty-osgi-boot/${jetty.version}</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty.osgi/jetty-osgi-boot-warurl/${jetty.version}</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty.osgi/jetty-osgi-boot-mvn/${jetty.version}</bundle>
+        <!--bundle start-level="40">mvn:org.eclipse.jetty.osgi/jetty-osgi-boot-mvn/${jetty.version}</bundle-->
     </feature>
 	
     <feature description="compendium service feature" version="${org.osgi.compendium.version}" name="cmpn">
@@ -120,7 +120,7 @@
     <feature description="sample" name="sample" version="1.0.0-SNAPSHOT">
         <feature version="${project.version}">httpservice</feature>
         <bundle start-level="45">mvn:org.planner/jetty.httpservice.sample/1.0.0-SNAPSHOT</bundle>
-        <!--bundle start-level="45">mvn:org.planner/wab-sample-loginmodule/1.0.0-SNAPSHOT</bundle-->
+        <bundle start-level="45">mvn:org.planner/wab-sample-loginmodule/1.0.0-SNAPSHOT</bundle>
         <bundle start-level="45">mvn:org.planner/wab-sample/${project.version}/war</bundle>
     </feature>
 		
