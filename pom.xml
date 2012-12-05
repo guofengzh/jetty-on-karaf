@@ -142,8 +142,8 @@
     <modules>
       <module>jetty-httpservice</module>
       <module>jetty-httpservice-sample</module>
-      <module>jetty-osgi-boot-mvn</module>
-      <!--module>wab-sample-loginmodule</module-->
+      <!--module>jetty-osgi-boot-mvn</module-->
+      <module>wab-sample-loginmodule</module>
       <module>wab-sample</module>
       <module>features</module>
       <module>apache-karaf</module>
