@@ -29,6 +29,20 @@
     <!-- Allow usage of System properties, especially the karaf.base property -->
     <ext:property-placeholder placeholder-prefix="$[" placeholder-suffix="]"/>
 
+    <!--
+     Each realm can contain one or more module definitions. Each module
+     identifies a LoginModule and the className attribute must be set to the
+     class name of the login module to use. Note that this login module must be
+     available from the bundle classloader, so either it has to be defined in the
+     bundle itself, or the needed package needs to be correctly imported. The
+     flags attribute can take one of four values that are explained on the JAAS
+     documentation.
+
+     The content of the module element is parsed as a properties file and will be
+     used to further configure the login module.
+     Deploying such a code will lead to a JaasRealm object in the OSGi registry,
+     which will then be used when using the JAAS login module.
+   -->
     <jaas:config name="jetty">
         <jaas:module className="org.apache.karaf.jaas.modules.properties.PropertiesLoginModule" flags="required">
             users = $[karaf.base]/etc/users.properties
@@ -37,4 +51,9 @@
             detailed.login.exception = true
         </jaas:module>
     </jaas:config>
+
+    <!-- Don't forge to expose the BackingEngine as an OSGi service -->
+    <service interface="org.apache.karaf.jaas.modules.BackingEngineFactory">
+       <bean class="org.apache.karaf.jaas.modules.properties.PropertiesBackingEngineFactory"/>
+    </service>
 </blueprint>
