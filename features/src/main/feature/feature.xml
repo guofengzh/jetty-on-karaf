@@ -2,7 +2,16 @@
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0" name="jetty-on-karaf">
 
     <feature description="jetty-bundles" name="jetty-bundles" version="${jetty.version}">
+
+        <!-- required by jetty-osgi-boot, but add this service cause "Boot feature ... not found".
+             Regards said:
+              Anyway, you don't have to install org.osgi.compendium bundle, it's already provided by Karaf. 
+              If you have some issues with missing package, it may require to update the etc/jre.properties file.
+              
+              but this cause NoClassFoundException.
+        -->
         <feature version="${org.osgi.compendium.version}">cmpn</feature>
+
         <!--bundle start-level="40">mvn:javax.servlet/javax.servlet-api/3.0.1</bundle-->
 	<!-- geronimo-servlet_3.0_spec/1.0 export with the package version 2.6 and 3.0 -->
         <bundle start-level="40">mvn:org.apache.geronimo.specs/geronimo-servlet_3.0_spec/1.0</bundle>
