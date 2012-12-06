@@ -69,7 +69,7 @@
     <dependencies>
       <dependency>
         <groupId>org.osgi</groupId>
-        <rtifactId>org.osgi.core</artifactId>
+        <artifactId>org.osgi.core</artifactId>
 	<version>4.3.0</version>
       </dependency>
       <dependency>
