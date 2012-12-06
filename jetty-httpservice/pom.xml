@@ -69,13 +69,13 @@
     <dependencies>
       <dependency>
         <groupId>org.osgi</groupId>
-         <artifactId>org.osgi.core</artifactId>
-		 <version>4.3.0</version>
+        <rtifactId>org.osgi.core</artifactId>
+	<version>4.3.0</version>
       </dependency>
       <dependency>
         <groupId>org.osgi</groupId>
         <artifactId>org.osgi.compendium</artifactId>
-		 <version>4.3.0</version>
+	<version>4.3.0</version>
      </dependency>
 
      <dependency>
@@ -84,6 +84,14 @@
       <version>8.1.8.v20121106</version>
       <scope>provided</scope>
      </dependency>
+
+     <dependency>
+      <groupId>org.eclipse.jetty.osgi</groupId>
+      <artifactId>jetty-osgi-boot</artifactId>
+      <version>8.1.8.v20121106</version>
+      <scope>provided</scope>
+     </dependency>
+
      <dependency>
        <groupId>org.apache.felix</groupId>
          <artifactId>org.apache.felix.http.api</artifactId>

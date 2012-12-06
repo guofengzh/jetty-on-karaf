@@ -60,32 +60,41 @@ if not "%KARAF_HOME%" == "" (
 )
 set KARAF_HOME=%DIRNAME%..
 if not exist "%KARAF_HOME%" (
-    call :warn KARAF_HOME is not valid: %KARAF_HOME%
+    call :warn KARAF_HOME is not valid: "%KARAF_HOME%"
     goto END
 )
 
 if not "%KARAF_BASE%" == "" (
     if not exist "%KARAF_BASE%" (
-       call :warn KARAF_BASE is not valid: %KARAF_BASE%
+       call :warn KARAF_BASE is not valid: "%KARAF_BASE%"
        goto END
     )
 )
 if "%KARAF_BASE%" == "" (
-  set KARAF_BASE=%KARAF_HOME%
+  set "KARAF_BASE=%KARAF_HOME%"
 )
 
 if not "%KARAF_DATA%" == "" (
     if not exist "%KARAF_DATA%" (
-        call :warn KARAF_DATA is not valid: %KARAF_DATA%
+        call :warn KARAF_DATA is not valid: "%KARAF_DATA%"
         goto END
     )
 )
 if "%KARAF_DATA%" == "" (
-    set KARAF_DATA=%KARAF_BASE%\data
+    set "KARAF_DATA=%KARAF_BASE%\data"
 )        
 
 set LOCAL_CLASSPATH=%CLASSPATH%
-set DEFAULT_JAVA_OPTS=-server -Xms%JAVA_MIN_MEM% -Xmx%JAVA_MAX_MEM% -Dderby.system.home="%KARAF_DATA%\derby" -Dderby.storage.fileSyncTransactionLog=true -Dcom.sun.management.jmxremote
+set JAVA_MODE=-server
+if not exist "%JAVA_HOME%\bin\server\jvm.dll" (
+    if not exist "%JAVA_HOME%\jre\bin\server\jvm.dll" (
+        echo WARNING: Running karaf on a Java HotSpot Client VM because server-mode is not available.
+        echo Install Java Developer Kit to fix this.
+        echo For more details see http://java.sun.com/products/hotspot/whitepaper.html#client
+        set JAVA_MODE=-client
+    )
+)
+set DEFAULT_JAVA_OPTS=%JAVA_MODE% -Xms%JAVA_MIN_MEM% -Xmx%JAVA_MAX_MEM% -Dderby.system.home="%KARAF_DATA%\derby" -Dderby.storage.fileSyncTransactionLog=true -Dcom.sun.management.jmxremote
 
 rem Check some easily accessible MIN/MAX params for JVM mem usage
 if not "%JAVA_PERM_MEM%" == "" (
@@ -194,6 +203,8 @@ if not "%JAVA%" == "" goto :Check_JAVA_END
 if "%JAVA_OPTS%" == "" set JAVA_OPTS=%DEFAULT_JAVA_OPTS%
 
 if "%KARAF_DEBUG%" == "" goto :KARAF_DEBUG_END
+    if "%1" == "stop" goto :KARAF_DEBUG_END
+    if "%1" == "client" goto :KARAF_DEBUG_END
     rem Use the defaults if JAVA_DEBUG_OPTS was not set
     if "%JAVA_DEBUG_OPTS%" == "" set JAVA_DEBUG_OPTS=%DEFAULT_JAVA_DEBUG_OPTS%
 
@@ -277,7 +288,7 @@ if "%KARAF_PROFILER%" == "" goto :RUN
     SET ARGS=%1 %2 %3 %4 %5 %6 %7 %8
     rem Execute the Java Virtual Machine
     cd %KARAF_BASE%
-    "%JAVA%" -Djetty.home=%KARAF_BASE%/jettyhome -Dorg.apache.geronimo.jaspic.configurationFile=%KARAF_BASE%/jettyhome/jaspi/basic-test-jaspi-2.xml %JAVA_OPTS% %OPTS% -classpath "%CLASSPATH%" -Djava.endorsed.dirs="%JAVA_HOME%\jre\lib\endorsed;%JAVA_HOME%\lib\endorsed;%KARAF_HOME%\lib\endorsed" -Djava.ext.dirs="%JAVA_HOME%\jre\lib\ext;%JAVA_HOME%\lib\ext;%KARAF_HOME%\lib\ext" -Dkaraf.instances="%KARAF_HOME%\instances" -Dkaraf.home="%KARAF_HOME%" -Dkaraf.base="%KARAF_BASE%" -Djava.io.tmpdir="%KARAF_DATA%\tmp" -Dkaraf.data="%KARAF_DATA%" -Djava.util.logging.config.file="%KARAF_BASE%\etc\java.util.logging.properties" %KARAF_OPTS% %MAIN% %ARGS%
+    "%JAVA%" %JAVA_OPTS% %OPTS% -classpath "%CLASSPATH%" -Djava.endorsed.dirs="%JAVA_HOME%\jre\lib\endorsed;%JAVA_HOME%\lib\endorsed;%KARAF_HOME%\lib\endorsed" -Djava.ext.dirs="%JAVA_HOME%\jre\lib\ext;%JAVA_HOME%\lib\ext;%KARAF_HOME%\lib\ext" -Dkaraf.instances="%KARAF_HOME%\instances" -Dkaraf.home="%KARAF_HOME%" -Dkaraf.base="%KARAF_BASE%" -Djava.io.tmpdir="%KARAF_DATA%\tmp" -Dkaraf.data="%KARAF_DATA%" -Djava.util.logging.config.file="%KARAF_BASE%\etc\java.util.logging.properties" %KARAF_OPTS% %MAIN% %ARGS%
 
 rem # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 

@@ -148,7 +148,7 @@ locateData() {
 
 setupNativePath() {
     # Support for loading native libraries
-    LD_LIBRARY_PATH="/usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64/server:/usr/lib/jvm/java-6-openjdk-amd64/jre/lib/amd64:/usr/lib/jvm/java-6-openjdk-amd64/jre/../lib/amd64:$KARAF_BASE/lib:$KARAF_HOME/lib"
+    LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:$KARAF_BASE/lib:$KARAF_HOME/lib"
 
     # For Cygwin, set PATH from LD_LIBRARY_PATH
     if $cygwin; then
@@ -364,8 +364,8 @@ run() {
         esac
     done
 
-    JAVA_ENDORSED_DIRS="/home/hudson/tools/java/latest1.6/jre/lib/endorsed:/home/hudson/tools/java/latest1.6/lib/endorsed:${KARAF_HOME}/lib/endorsed"
-    JAVA_EXT_DIRS="/home/hudson/tools/java/latest1.6/jre/lib/ext:/home/hudson/tools/java/latest1.6/lib/ext:${KARAF_HOME}/lib/ext"
+    JAVA_ENDORSED_DIRS="${JAVA_HOME}/jre/lib/endorsed:${JAVA_HOME}/lib/endorsed:${KARAF_HOME}/lib/endorsed"
+    JAVA_EXT_DIRS="${JAVA_HOME}/jre/lib/ext:${JAVA_HOME}/lib/ext:${KARAF_HOME}/lib/ext"
     if $cygwin; then
         KARAF_HOME=`cygpath --path --windows "$KARAF_HOME"`
         KARAF_BASE=`cygpath --path --windows "$KARAF_BASE"`
@@ -375,8 +375,6 @@ run() {
         JAVA_ENDORSED_DIRS=`cygpath --path --windows "$JAVA_ENDORSED_DIRS"`
         JAVA_EXT_DIRS=`cygpath --path --windows "$JAVA_EXT_DIRS"`
     fi
-
-    JAVA_OPTS="$JAVA_OPTS -Djetty.home=$KARAF_BASE/jettyhome"
     cd "$KARAF_BASE"
     exec "$JAVA" $JAVA_OPTS -Djava.endorsed.dirs="${JAVA_ENDORSED_DIRS}" -Djava.ext.dirs="${JAVA_EXT_DIRS}" -Dkaraf.instances="${KARAF_HOME}/instances" -Dkaraf.home="$KARAF_HOME" -Dkaraf.base="$KARAF_BASE" -Dkaraf.data="$KARAF_DATA" -Djava.io.tmpdir="$KARAF_DATA/tmp" -Djava.util.logging.config.file="$KARAF_BASE/etc/java.util.logging.properties" $KARAF_OPTS $OPTS -classpath "$CLASSPATH" $MAIN "$@"
 }
