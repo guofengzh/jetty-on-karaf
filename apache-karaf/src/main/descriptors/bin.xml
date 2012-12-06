@@ -32,6 +32,10 @@
       <outputDirectory>/</outputDirectory>
       <fileMode>0644</fileMode>
    </fileSet>
+    <fileSet>
+      <directory>src/main/lib</directory>
+      <outputDirectory>/lib</outputDirectory>
+   </fileSet>
   </fileSets>
 
   <dependencySets>
@@ -39,13 +43,6 @@
       <outputDirectory>/</outputDirectory>
       <includes>
         <include>org.mortbay.jetty.npn:npn-boot</include>
-      </includes>
-    </dependencySet>
-    <dependencySet>
-      <outputDirectory>/lib/ext</outputDirectory>
-      <includes>
-        <include>org.bouncycastle:bcpg-jdk15on</include>
-        <!--include>org.bouncycastle:bcprov-ext-jdk15on</include-->
       </includes>
     </dependencySet>
   </dependencySets>  

@@ -123,5 +123,4 @@
         <bundle start-level="45">mvn:org.planner/wab-sample-loginmodule/1.0.0-SNAPSHOT</bundle>
         <bundle start-level="45">mvn:org.planner/wab-sample/${project.version}/war</bundle>
     </feature>
-		
 </features>
