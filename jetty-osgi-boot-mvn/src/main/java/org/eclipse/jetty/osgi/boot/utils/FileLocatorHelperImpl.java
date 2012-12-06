@@ -28,8 +28,8 @@ public class FileLocatorHelperImpl extends DefaultFileLocatorHelper
     public File getBundleInstallLocation(Bundle bundle) throws Exception
     {
     	String loc = bundle.getLocation() ;
-	
-    	if ( loc.startsWith( "mvn:") )
+    	File outFile = super.getBundleInstallLocation(bundle) ;
+    	if ( outFile == null && loc.startsWith( "mvn:") )
     	{
 			BundleContext bundleContext = bundle.getBundleContext() ;
 			String filter = "(" + URLConstants.URL_HANDLER_PROTOCOL + "=" + ServiceConstants.PROTOCOL + ")" ;
@@ -41,7 +41,7 @@ public class FileLocatorHelperImpl extends DefaultFileLocatorHelper
 				URLConnection connection = streamService.openConnection( url ) ;
 				InputStream in = connection.getInputStream() ;
 				String outFileName = createFileName( bundle, url ) ;
-				File outFile = bundle.getDataFile( outFileName ) ;
+				outFile = bundle.getDataFile( outFileName ) ;
 				if ( !outFile.exists() || outFile.lastModified() < bundle.getLastModified() ) {
 				   // The cache does not exist or older than the bundle
 				   mackeCopy( in, outFile  ) ;
@@ -52,10 +52,9 @@ public class FileLocatorHelperImpl extends DefaultFileLocatorHelper
  			    //File f = resolverService.resolve( new URL( loc ) ) ;
 			    bundleContext.ungetService( references[0] ) ;
                 return outFile ;
-			} else
-			    return null ;
-    	} else
-    	   return super.getBundleInstallLocation(bundle) ;
+			}
+    	}
+	    return null ;
     }
     
     private void mackeCopy( InputStream in, File outFile ) throws IOException {
