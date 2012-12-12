@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0" name="jetty-on-karaf">
+
+    <feature description="jetty-bundles" name="jetty-bundles" version="${jetty.version}">
+        <!--feature version="${org.osgi.compendium.version}">cmpn</feature-->
+        
+        <!-- 3rd party -->
+        <!--bundle start-level="40">mvn:javax.servlet/javax.servlet-api/3.0.1</bundle-->
+	<!-- geronimo-servlet_3.0_spec/1.0 export with the package version 2.6 and 3.0 -->
+        <bundle start-level="40">mvn:org.apache.geronimo.specs/geronimo-servlet_3.0_spec/1.0</bundle>
+        <bundle start-level="40">mvn:javax.activation/com.springsource.javax.activation/1.1.0</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.orbit/javax.annotation/1.1.0.v201108011116</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.orbit/javax.el/2.2.0.v201108011116</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.orbit/com.sun.el/2.2.0.v201108011116</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.orbit/javax.mail.glassfish/1.4.1.v201005082020</bundle>
+        <!--bundle start-level="40">mvn:org.eclipse.jetty.orbit/javax.transaction/1.1.1.v201105210645</bundle-->
+	<bundle start-level="40">mvn:javax.transaction/com.springsource.javax.transaction/1.1.0</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.orbit/org.objectweb.asm/3.3.1.v201105211655</bundle>
+
+        <!-- Jetty bundles -->
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-annotations/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-client/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-continuation/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-deploy/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-http/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-io/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-jaas/${jetty.version}</bundle>
+        <!--bundle start-level="40">mvn:org.eclipse.jetty/jetty-jaspi/${jetty.version}</bundle-->
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-jmx/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-jndi/${jetty.version}</bundle>
+        <!--bundle start-level="40">mvn:org.eclipse.jetty/jetty-nosql/${jetty.version}</bundle-->
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-plus/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-rewrite/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-security/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-servlet/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-servlets/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-server/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-util/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-webapp/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-xml/${jetty.version}</bundle>
+
+        <!-- Jetty Websocket -->
+        <!--bundle start-level="40">mvn:javax.websocket/javax.websocket-api/1.0-b08</bundle-->
+        <bundle start-level="40">mvn:org.eclipse.jetty.drafts/javax.websocket-api/0.0.006.draft</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.websocket/websocket-api/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.websocket/websocket-client/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.websocket/websocket-common/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.websocket/websocket-server/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.websocket/websocket-servlet/${jetty.version}</bundle>
+
+        <!-- Jetty SPDY -->
+        <bundle start-level="40">mvn:org.eclipse.jetty.spdy/spdy-core/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.spdy/spdy-server/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.spdy/spdy-http-server/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.spdy/spdy-client/${jetty.version}</bundle>
+
+        <!-- Jetty OSGi boot -->
+        <bundle start-level="40">mvn:org.eclipse.jetty.osgi/jetty-osgi-boot/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.osgi/jetty-osgi-boot-warurl/${jetty.version}</bundle>
+        <!--bundle start-level="40">mvn:org.eclipse.jetty.osgi/jetty-osgi-boot-mvn/${jetty.version}</bundle-->
+    </feature>
+	
+    <feature description="compendium service feature" version="${org.osgi.compendium.version}" name="cmpn">
+        <bundle start="true" start-level="5">mvn:org.osgi/org.osgi.compendium/${org.osgi.compendium.version}</bundle>
+    </feature>
+
+    <feature description="HttpService Support" version="${project.version}" name="httpservice">
+        <feature version="${jetty.version}">jetty-bundles</feature>
+        <bundle start-level="42">mvn:org.apache.felix/org.apache.felix.http.jetty.httpservice/1.0.0</bundle>		
+    </feature>
+
+    <feature description="Felix Web Console" name="felix-webconsole" version="${project.version}" resolver="(obr)">
+        <feature version="${project.version}">httpservice</feature>
+		<!-- the following three bundles are required by web console 4.0 -->
+        <bundle start-level="42">mvn:org.json/com.springsource.org.json/1.0.0</bundle>
+        <bundle start-level="42">mvn:commons-io/commons-io/2.4</bundle>
+        <bundle start-level="42">mvn:commons-fileupload/commons-fileupload/1.2.2</bundle>
+		
+        <bundle start-level="45">mvn:org.apache.felix/org.apache.felix.scr/${felix.scr}</bundle>
+        <bundle start-level="45">mvn:org.apache.felix/org.apache.felix.webconsole/${felix.web.console}</bundle>
+    </feature>
+    
+    <feature name="karaf-webconsole" version="3.0.0-SNAPSHOT" description="Base support of the Karaf WebConsole" resolver="(obr)">
+        <config name="org.apache.karaf.webconsole">
+            realm=karaf
+        </config>
+        <feature version="${project.version}">httpservice</feature>
+
+		<!-- pax web dependendent by karaf-webconsole -->
+        <!--bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-api/${pax.web.version}</bundle-->
+        <!--bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-spi/${pax.web.version}</bundle-->
+        <!--bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-runtime/${pax.web.version}</bundle-->
+        <!--bundle start-level="30">mvn:org.ops4j.pax.web/pax-web-jetty/${pax.web.version}</bundle-->
+		
+		<!-- we now does not install the Karaf HTTP plugin -->
+        <!--bundle start-level="30">mvn:org.apache.karaf.http/org.apache.karaf.http.core/${karaf.version}</bundle-->
+        <!--bundle start-level="30">mvn:org.apache.karaf.http/org.apache.karaf.http.command/${karaf.version}</bundle-->
+
+		<!-- karaf webconsole -->
+        <bundle start-level="30">mvn:org.apache.felix/org.apache.felix.metatype/1.0.4</bundle>
+        <bundle start-level="30">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.branding/${karaf.version}</bundle>
+        <bundle start-level="30">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.console/${karaf.version}</bundle>
+		
+        <bundle start-level="30">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.instance/${karaf.version}</bundle>
+        <bundle start-level="30">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.features/${karaf.version}</bundle>
+        <bundle start-level="30">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.gogo/${karaf.version}</bundle>
+        <!--bundle start-level="30">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.http/${karaf.version}</bundle-->
+
+        <conditional>
+            <condition>eventadmin</condition>
+            <bundle start-level="30">mvn:org.apache.felix/org.apache.felix.webconsole.plugins.event/1.0.2</bundle>
+        </conditional>
+    </feature>
+	
+	<feature description="Karaf Manual" name="manual" version="${karaf.version}">
+        <feature version="${jetty.version}">jetty-bundles</feature>
+        <bundle start-level="4">mvn:org.apache.karaf/manual/${karaf.version}/war</bundle>
+	</feature>
+
+    <feature description="sample" name="sample" version="1.0.0-SNAPSHOT">
+        <feature version="${project.version}">httpservice</feature>
+        <bundle start-level="45">mvn:org.planner/jetty.httpservice.sample/1.0.0-SNAPSHOT</bundle>
+        <bundle start-level="45">mvn:org.planner/wab-sample-loginmodule/1.0.0-SNAPSHOT</bundle>
+        <bundle start-level="45">mvn:org.planner/wab-sample/${project.version}/war</bundle>
+    </feature>
+</features>
