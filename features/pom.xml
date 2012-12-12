@@ -13,29 +13,30 @@
   <packaging>pom</packaging>
   
   <build>
-  
-  <pluginManagement>
-     <plugins>
-        <plugin>
-          <groupId>org.apache.felix</groupId>
-          <artifactId>maven-bundle-plugin</artifactId>
-          <extensions>true</extensions>
-          <version>2.3.6</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-    <plugins>
-    <!--
+    <resources>
+      <resource>
+         <directory>${project.basedir}/src/main/resources</directory>
+         <filtering>true</filtering>
+         <includes>
+           <include>**/features.xml</include>
+           <include>**/*.cfg</include>
+           <include>**/*.properties</include>
+        </includes>
+      </resource>
+   </resources>
+
+   <plugins>
+      <!--
        Available goals:
         features-add-to-repository
+        features-create-kar
+        features-generate-descriptor
+        features-validate-descriptor
         instance-create-archive
         commands-generate-help
-        features-generate-descriptor
         install-kars
-        features-validate-descriptor
-        features-create-kar
-    -->    
-      <plugin>
+      -->    
+      <!--plugin>
         <groupId>org.apache.karaf.tooling</groupId>
         <artifactId>karaf-maven-plugin</artifactId>
         <version>3.0.0-SNAPSHOT</version>
@@ -45,8 +46,6 @@
             <phase>generate-resources</phase>
             <goals>
               <goal>features-generate-descriptor</goal>
-              <!--goal>features-add-to-repository</goal-->
-              <!--goal>features-validate-descriptor</goal-->
             </goals>
             <configuration>
               <bundles>src/main/resources/bundles.properties</bundles>
@@ -56,286 +55,47 @@
             </configuration>
           </execution>
        </executions>
+     </plugin-->
+
+     <plugin>
+       <groupId>org.apache.maven.plugins</groupId>
+       <artifactId>maven-resources-plugin</artifactId>
+       <version>2.6</version>
+       <executions>
+         <execution>
+           <id>filter</id>
+           <phase>generate-resources</phase>
+           <goals>
+             <goal>resources</goal>
+           </goals>
+         </execution>
+      </executions>
      </plugin>
+     <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>1.7</version>
+        <executions>
+          <execution>
+             <id>attach-artifacts</id>
+             <phase>package</phase>
+             <goals>
+                <goal>attach-artifact</goal>
+             </goals>
+             <configuration>
+                <artifacts>
+                  <artifact>
+                     <file>target/classes/features.xml</file>
+                     <type>xml</type>
+                     <classifier>features</classifier>
+                  </artifact>
+                </artifacts>
+             </configuration>
+          </execution>
+        </executions>
+       </plugin>
     </plugins>
+
   </build>  
-  
-<dependencies>
 
-<dependency>
-    <groupId>javax.activation</groupId>
-    <artifactId>com.springsource.javax.activation</artifactId>
-    <version>1.1.0</version>
-</dependency>
-
-<dependency>
-    <groupId>org.eclipse.jetty.orbit</groupId>
-    <artifactId>javax.annotation</artifactId>
-    <version>1.1.0.v201108011116</version>
-</dependency>
-
-<dependency>
-    <groupId>org.eclipse.jetty.orbit</groupId>
-    <artifactId>javax.el</artifactId>
-    <version>2.2.0.v201108011116</version>
-</dependency>
-
-<dependency>
-    <groupId>org.eclipse.jetty.orbit</groupId>
-    <artifactId>com.sun.el</artifactId>
-    <version>2.2.0.v201108011116</version>
-</dependency>
-
-<!--dependency>
-    <groupId>org.apache.servicemix.bundles</groupId>
-    <artifactId>org.apache.servicemix.bundles.javax.mail</artifactId>
-    <version>1.4.1_4</version>
-</dependency-->
-
-<dependency>
-    <groupId>javax.mail</groupId>
-    <artifactId>com.springsource.javax.mail</artifactId>
-    <version>1.4.1</version>
-</dependency>
-
-<dependency>
-    <groupId>javax.transaction</groupId>
-    <artifactId>com.springsource.javax.transaction</artifactId>
-    <version>1.1.0</version>
-</dependency>
-
-<dependency>
-    <groupId>org.objectweb.asm</groupId>
-    <artifactId>com.springsource.org.objectweb.asm</artifactId>
-    <version>3.2.0</version>
-</dependency>
-
-<dependency>
-    <groupId>org.eclipse.jetty</groupId>
-    <artifactId>jetty-continuation</artifactId>
-    <version>${jetty.version}</version>
-</dependency>
-
-<dependency>
-    <groupId>org.eclipse.jetty</groupId>
-    <artifactId>jetty-util</artifactId>
-    <version>${jetty.version}</version>
-</dependency>
-
-<dependency>
-    <groupId>org.eclipse.jetty</groupId>
-    <artifactId>jetty-io</artifactId>
-    <version>${jetty.version}</version>
-</dependency>
-
-<dependency>
-    <groupId>org.eclipse.jetty</groupId>
-    <artifactId>jetty-http</artifactId>
-    <version>${jetty.version}</version>
-</dependency>
-
-<dependency>
-  <groupId>javax.servlet</groupId>
-  <artifactId>javax.servlet-api</artifactId>
-  <version>3.0.1</version>
-  <scope>provided</scope>
-</dependency>
-
-<dependency>
-    <groupId>org.eclipse.jetty</groupId>
-    <artifactId>jetty-security</artifactId>
-    <version>${jetty.version}</version>
-</dependency>
-
-<dependency>
-    <groupId>org.eclipse.jetty</groupId>
-    <artifactId>jetty-server</artifactId>
-    <version>${jetty.version}</version>
-    <exclusions>
-      <exclusion>
-        <groupId>org.mortbay.jetty</groupId>
-        <artifactId>servlet-api</artifactId>
-      </exclusion>
-    </exclusions>
-</dependency>
-
-<dependency>
-    <groupId>org.eclipse.jetty</groupId>
-    <artifactId>jetty-servlet</artifactId>
-    <version>${jetty.version}</version>
-</dependency>
-
-<dependency>
-    <groupId>org.eclipse.jetty</groupId>
-    <artifactId>jetty-xml</artifactId>
-    <version>${jetty.version}</version>
-</dependency>
-
-<dependency>
-    <groupId>org.eclipse.jetty</groupId>
-    <artifactId>jetty-webapp</artifactId>
-    <version>${jetty.version}</version>
-    <exclusions>
-      <exclusion>
-        <groupId>javax.mail</groupId>
-        <artifactId>mail</artifactId>
-      </exclusion>
-    </exclusions>
-</dependency>
-
-<dependency>
-    <groupId>org.eclipse.jetty</groupId>
-    <artifactId>jetty-jndi</artifactId>
-    <version>${jetty.version}</version>
-    <exclusions>
-      <exclusion>
-        <groupId>javax.mail</groupId>
-        <artifactId>mail</artifactId>
-      </exclusion>
-    </exclusions>
-</dependency>
-
-<dependency>
-    <groupId>org.eclipse.jetty</groupId>
-    <artifactId>jetty-plus</artifactId>
-    <version>${jetty.version}</version>
-    <exclusions>
-      <exclusion>
-        <groupId>org.apache.geronimo.specs</groupId>
-        <artifactId>geronimo-jta_1.1_spec</artifactId>
-      </exclusion>
-      <exclusion>
-        <groupId>javax.mail</groupId>
-        <artifactId>mail</artifactId>
-      </exclusion>
-    </exclusions>
-</dependency>
-
-<dependency>
-    <groupId>org.eclipse.jetty</groupId>
-    <artifactId>jetty-deploy</artifactId>
-    <version>${jetty.version}</version>
-</dependency>
-
-<!--dependency>
-    <groupId>org.eclipse.jetty</groupId>
-    <artifactId>jetty-annotations</artifactId>
-    <version>${jetty.version}</version>
-</dependency-->
-
-<dependency>
-    <groupId>org.eclipse.jetty</groupId>
-    <artifactId>jetty-websocket</artifactId>
-    <version>${jetty.version}</version>
-</dependency>
-
-<dependency>
-    <groupId>org.eclipse.jetty</groupId>
-    <artifactId>jetty-policy</artifactId>
-    <version>${jetty.version}</version>
-</dependency>
-
-<dependency>
-    <groupId>org.eclipse.jetty</groupId>
-    <artifactId>jetty-ajp</artifactId>
-    <version>${jetty.version}</version>
-</dependency>
-
-<dependency>
-    <groupId>org.eclipse.jetty</groupId>
-    <artifactId>jetty-jmx</artifactId>
-    <version>${jetty.version}</version>
-</dependency>
-
-<dependency>
-    <groupId>org.eclipse.jetty</groupId>
-    <artifactId>jetty-client</artifactId>
-    <version>${jetty.version}</version>
-</dependency>
-
-<dependency>
-    <groupId>org.eclipse.jetty</groupId>
-    <artifactId>jetty-rewrite</artifactId>
-    <version>${jetty.version}</version>
-</dependency>
-
-<!-- OSGI boot -->
-<dependency>
-    <groupId>org.eclipse.jetty.osgi</groupId>
-    <artifactId>jetty-osgi-boot</artifactId>
-    <version>${jetty.version}</version>
-    <exclusions>
-      <exclusion>
-        <groupId>org.eclipse.jetty</groupId>
-        <artifactId>jetty-annotations</artifactId>
-      </exclusion>
-      <exclusion>
-        <groupId>org.eclipse.jetty</groupId>
-        <artifactId>jetty-nested</artifactId>
-      </exclusion>
-      <exclusion>
-        <groupId>org.eclipse.osgi</groupId>
-        <artifactId>org.eclipse.osgi</artifactId>
-      </exclusion>
-      <exclusion>
-        <groupId>org.eclipse.osgi</groupId>
-        <artifactId>org.eclipse.osgi.services</artifactId>
-      </exclusion>
-      <exclusion>
-        <groupId>javax.mail</groupId>
-        <artifactId>mail</artifactId>
-      </exclusion>
-    </exclusions>
-</dependency>
-
-<dependency>
-    <groupId>org.eclipse.jetty.osgi</groupId>
-    <artifactId>jetty-osgi-boot-warurl</artifactId>
-    <version>${jetty.version}</version>
-    <exclusions>
-      <exclusion>
-        <groupId>org.eclipse.osgi</groupId>
-        <artifactId>org.eclipse.osgi</artifactId>
-      </exclusion>
-    </exclusions>
-</dependency>
-
-<dependency>
-    <groupId>org.eclipse.jetty.osgi</groupId>
-    <artifactId>jetty-osgi-boot-mvn</artifactId>
-    <version>${jetty.version}</version>
-    <exclusions>
-      <exclusion>
-        <groupId>org.ops4j.pax.url</groupId>
-        <artifactId>pax-url-aether</artifactId>
-      </exclusion>
-    </exclusions>
-</dependency>
-
-<!-- http service -->
-<!--dependency>
-    <groupId>org.apache.felix</groupId>
-    <artifactId>org.apache.felix.http.jetty.httpservice</artifactId>
-    <version>1.0.0</version>
-    <exclusions>
-      <exclusion>
-        <groupId>org.osgi</groupId>
-        <artifactId>core</artifactId>
-      </exclusion>
-      <exclusion>
-        <groupId>org.osgi</groupId>
-        <artifactId>org.osgi.compendium</artifactId>
-      </exclusion>
-      <exclusion>
-        <groupId>org.apache.felix</groupId>
-        <artifactId>org.apache.felix.http.api</artifactId>
-      </exclusion>
-      <exclusion>
-        <groupId>org.apache.felix</groupId>
-        <artifactId>org.apache.felix.http.base</artifactId>
-      </exclusion>
-    </exclusions>
-</dependency-->
-
-</dependencies>
 </project>
