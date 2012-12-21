@@ -19,7 +19,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-	
+
     <parent>
         <groupId>org.apache.felix</groupId>
         <artifactId>org.apache.felix.http</artifactId>
@@ -32,7 +32,14 @@
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <build>
+    <properties>
+      <jetty.version>9.0.0.M3</jetty.version>
+      <felix.http.version>2.2.0</felix.http.version>
+      <org.osgi.compendium.version>4.3.0</org.osgi.compendium.version>
+      <org.osgi.core>4.3.0</org.osgi.core>
+    </properties>
+
+   <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.felix</groupId>
@@ -52,7 +59,7 @@
                             org.apache.felix.http.jetty.*,
                         </Private-Package>
                         <Import-Package>
-						    javax.servlet.*;version=3.0,
+			    javax.servlet.*;version=3.0,
                             org.slf4j;resolution:=optional,
                             *;resolution:=optional
                         </Import-Package>
@@ -70,38 +77,47 @@
       <dependency>
         <groupId>org.osgi</groupId>
         <artifactId>org.osgi.core</artifactId>
-	<version>4.3.0</version>
+	<version>${org.osgi.core}</version>
       </dependency>
       <dependency>
         <groupId>org.osgi</groupId>
         <artifactId>org.osgi.compendium</artifactId>
-	<version>4.3.0</version>
+	<version>${org.osgi.compendium.version}</version>
      </dependency>
-
      <dependency>
-      <groupId>org.eclipse.jetty.aggregate</groupId>
-      <artifactId>jetty-all</artifactId>
-      <version>8.1.8.v20121106</version>
+      <groupId>org.eclipse.jetty</groupId>
+      <artifactId>jetty-server</artifactId>
+      <version>${jetty.version}</version>
       <scope>provided</scope>
      </dependency>
-
+     <dependency>
+      <groupId>org.eclipse.jetty</groupId>
+      <artifactId>jetty-servlet</artifactId>
+      <version>${jetty.version}</version>
+      <scope>provided</scope>
+     </dependency>
+     <dependency>
+      <groupId>org.eclipse.jetty</groupId>
+      <artifactId>jetty-webapp</artifactId>
+      <version>${jetty.version}</version>
+      <scope>provided</scope>
+     </dependency>
      <dependency>
       <groupId>org.eclipse.jetty.osgi</groupId>
       <artifactId>jetty-osgi-boot</artifactId>
-      <version>8.1.8.v20121106</version>
+      <version>${jetty.version}</version>
       <scope>provided</scope>
      </dependency>
-
      <dependency>
        <groupId>org.apache.felix</groupId>
-         <artifactId>org.apache.felix.http.api</artifactId>
-         <version>2.2.0</version>
-       </dependency>
-       <dependency>
-          <groupId>org.apache.felix</groupId>
-          <artifactId>org.apache.felix.http.base</artifactId>
-          <version>2.2.0</version>
-        </dependency>
+       <artifactId>org.apache.felix.http.api</artifactId>
+       <version>${felix.http.version}</version>
+     </dependency>
+     <dependency>
+       <groupId>org.apache.felix</groupId>
+       <artifactId>org.apache.felix.http.base</artifactId>
+       <version>${felix.http.version}</version>
+     </dependency>
     </dependencies>
 
 </project>

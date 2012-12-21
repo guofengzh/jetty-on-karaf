@@ -16,7 +16,7 @@ org.eclipse.jetty.servlet.WebApplicationContext objet
   <Set name="securityHandler">
     <New class="org.eclipse.jetty.security.ConstraintSecurityHandler">
      <Set name="loginService">
-       <New class="org.eclipse.jetty.plus.jaas.JAASLoginService">
+       <New class="org.eclipse.jetty.jaas.JAASLoginService">
          <Set name="name">Test JAAS Realm</Set>
          <Set name="loginModuleName">jetty</Set>
        </New>

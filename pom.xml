@@ -7,7 +7,7 @@
       
   <properties>
     <this.project.version>1.0.0-SNAPSHOT</this.project.version>
-    <jetty.version>8.1.8.v20121106</jetty.version>
+    <jetty.version>9.0.0.M3</jetty.version>
     <karaf.version>3.0.0-SNAPSHOT</karaf.version>
     <pax-url-aether.version>1.5.1-SNAPSHOT</pax-url-aether.version>
     <pax.web.version>2.1.0</pax.web.version>
@@ -142,8 +142,8 @@
     <modules>
       <module>jetty-httpservice</module>
       <module>jetty-httpservice-sample</module>
-      <module>jetty-osgi-boot-mvn</module>
-      <!--module>wab-sample-loginmodule</module-->
+      <!--module>jetty-osgi-boot-mvn</module-->
+      <module>wab-sample-loginmodule</module>
       <module>wab-sample</module>
       <module>features</module>
       <module>apache-karaf</module>

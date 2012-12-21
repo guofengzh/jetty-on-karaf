@@ -32,7 +32,18 @@
       <outputDirectory>/</outputDirectory>
       <fileMode>0644</fileMode>
    </fileSet>
-
+    <fileSet>
+      <directory>src/main/lib</directory>
+      <outputDirectory>/lib</outputDirectory>
+   </fileSet>
   </fileSets>
-  
+
+  <dependencySets>
+    <dependencySet>
+      <outputDirectory>/</outputDirectory>
+      <includes>
+        <include>org.mortbay.jetty.npn:npn-boot</include>
+      </includes>
+    </dependencySet>
+  </dependencySets>  
 </assembly>

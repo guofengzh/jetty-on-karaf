@@ -2,16 +2,9 @@
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0" name="jetty-on-karaf">
 
     <feature description="jetty-bundles" name="jetty-bundles" version="${jetty.version}">
-
-        <!-- required by jetty-osgi-boot, but add this service cause "Boot feature ... not found".
-             Regards said:
-              Anyway, you don't have to install org.osgi.compendium bundle, it's already provided by Karaf. 
-              If you have some issues with missing package, it may require to update the etc/jre.properties file.
-              
-              but this cause NoClassFoundException.
-        -->
-        <feature version="${org.osgi.compendium.version}">cmpn</feature>
-
+        <!--feature version="${org.osgi.compendium.version}">cmpn</feature-->
+        
+        <!-- 3rd party -->
         <!--bundle start-level="40">mvn:javax.servlet/javax.servlet-api/3.0.1</bundle-->
 	<!-- geronimo-servlet_3.0_spec/1.0 export with the package version 2.6 and 3.0 -->
         <bundle start-level="40">mvn:org.apache.geronimo.specs/geronimo-servlet_3.0_spec/1.0</bundle>
@@ -23,28 +16,48 @@
         <!--bundle start-level="40">mvn:org.eclipse.jetty.orbit/javax.transaction/1.1.1.v201105210645</bundle-->
 	<bundle start-level="40">mvn:javax.transaction/com.springsource.javax.transaction/1.1.0</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty.orbit/org.objectweb.asm/3.3.1.v201105211655</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-continuation/${jetty.version}</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-util/${jetty.version}</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-io/${jetty.version}</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-http/${jetty.version}</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-security/${jetty.version}</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-server/${jetty.version}</bundle>
-        <bundle start-level="40">mvn:org.mortbay.jetty/servlet-api/3.0.20100224</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-servlet/${jetty.version}</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-xml/${jetty.version}</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-webapp/${jetty.version}</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-jndi/${jetty.version}</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-plus/${jetty.version}</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-deploy/${jetty.version}</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-websocket/${jetty.version}</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-policy/${jetty.version}</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-ajp/${jetty.version}</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-jmx/${jetty.version}</bundle>
+
+        <!-- Jetty bundles -->
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-annotations/${jetty.version}</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty/jetty-client/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-continuation/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-deploy/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-http/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-io/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-jaas/${jetty.version}</bundle>
+        <!--bundle start-level="40">mvn:org.eclipse.jetty/jetty-jaspi/${jetty.version}</bundle-->
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-jmx/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-jndi/${jetty.version}</bundle>
+        <!--bundle start-level="40">mvn:org.eclipse.jetty/jetty-nosql/${jetty.version}</bundle-->
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-plus/${jetty.version}</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty/jetty-rewrite/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-security/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-servlet/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-servlets/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-server/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-util/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-webapp/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty/jetty-xml/${jetty.version}</bundle>
+
+        <!-- Jetty Websocket -->
+        <!--bundle start-level="40">mvn:javax.websocket/javax.websocket-api/1.0-b08</bundle-->
+        <bundle start-level="40">mvn:org.eclipse.jetty.drafts/javax.websocket-api/0.0.006.draft</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.websocket/websocket-api/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.websocket/websocket-client/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.websocket/websocket-common/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.websocket/websocket-server/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.websocket/websocket-servlet/${jetty.version}</bundle>
+
+        <!-- Jetty SPDY -->
+        <bundle start-level="40">mvn:org.eclipse.jetty.spdy/spdy-core/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.spdy/spdy-server/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.spdy/spdy-http-server/${jetty.version}</bundle>
+        <bundle start-level="40">mvn:org.eclipse.jetty.spdy/spdy-client/${jetty.version}</bundle>
+
+        <!-- Jetty OSGi boot -->
         <bundle start-level="40">mvn:org.eclipse.jetty.osgi/jetty-osgi-boot/${jetty.version}</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty.osgi/jetty-osgi-boot-warurl/${jetty.version}</bundle>
-        <bundle start-level="40">mvn:org.eclipse.jetty.osgi/jetty-osgi-boot-mvn/${jetty.version}</bundle>
+        <!--bundle start-level="40">mvn:org.eclipse.jetty.osgi/jetty-osgi-boot-mvn/${jetty.version}</bundle-->
     </feature>
 	
     <feature description="compendium service feature" version="${org.osgi.compendium.version}" name="cmpn">
@@ -107,8 +120,7 @@
     <feature description="sample" name="sample" version="1.0.0-SNAPSHOT">
         <feature version="${project.version}">httpservice</feature>
         <bundle start-level="45">mvn:org.planner/jetty.httpservice.sample/1.0.0-SNAPSHOT</bundle>
-        <!--bundle start-level="45">mvn:org.planner/wab-sample-loginmodule/1.0.0-SNAPSHOT</bundle-->
+        <bundle start-level="45">mvn:org.planner/wab-sample-loginmodule/1.0.0-SNAPSHOT</bundle>
         <bundle start-level="45">mvn:org.planner/wab-sample/${project.version}/war</bundle>
     </feature>
-		
 </features>

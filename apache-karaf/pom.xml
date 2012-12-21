@@ -23,10 +23,21 @@
       <type>tar.gz</type>
     </dependency>
     <dependency>
-       <groupId>org.osgi</groupId>
-       <artifactId>org.osgi.compendium</artifactId>
-       <version>4.2.0</version>
+      <groupId>org.mortbay.jetty.npn</groupId>
+      <artifactId>npn-boot</artifactId>
+      <version>1.1.1.v20121030</version>
     </dependency>
+
+<dependency>
+    <groupId>org.bouncycastle</groupId>
+    <artifactId>bcpg-jdk15on</artifactId>
+    <version>1.47</version>
+</dependency>
+<dependency>
+    <groupId>org.bouncycastle</groupId>
+    <artifactId>bcprov-ext-jdk15on</artifactId>
+    <version>1.47</version>
+</dependency>
   </dependencies>
   
   <build>
@@ -104,18 +115,24 @@
        </execution>
     </executions>
    </plugin>
-    <!--plugin>
+    <plugin>
         <groupId>org.planner</groupId>
         <artifactId>merge-properties-maven-plugin</artifactId>
         <version>1.0.0</version>
         <configuration>
           <merges>
             <merge>
-              <targetFile>${project.build.outputDirectory}/etc/startup.properties</targetFile>
+              <targetFile>target/dependencies/apache-karaf-${karaf.version}/etc/config.properties</targetFile>
               <propertiesFiles>
-                <propertiesFile>${project.build.directory}/dependencies/apache-karaf-${karaf.version}/etc/startup.properties</propertiesFile>
-                <propertiesFile>${project.build.outputDirectory}/custom/startup.properties</propertiesFile>
+                <propertiesFile>${project.build.directory}/dependencies/apache-karaf-${karaf.version}/etc/config.properties</propertiesFile>
               </propertiesFiles>
+              <adds>
+                  <add>org.apache.karaf.security.providers=org.bouncycastle.jce.provider.BouncyCastleProvider</add>
+              </adds>
+              <appends>
+                  <!-- for NPN and JCE Provider -->
+                  <append>org.osgi.framework.bootdelegation=,org.eclipse.jetty.npn,org.bouncycastle.*</append>
+              </appends>		  
             </merge>
           </merges>
         </configuration>
@@ -127,7 +144,7 @@
             </goals>
           </execution>
         </executions>
-    </plugin-->   
+    </plugin>   
    <plugin>
       <groupId>org.apache.maven.plugins</groupId>
       <artifactId>maven-assembly-plugin</artifactId>

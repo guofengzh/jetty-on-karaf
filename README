@@ -1,4 +1,4 @@
-Deploy Jetty 8.1.x (using jetty-osgi-boot for web bundle support) to Karaf 3.0.0-SNAPSHOT
+Deploy Jetty 9.0.0 (using jetty-osgi-boot for web bundle support) to Karaf 3.0.0-SNAPSHOT
 
 Usage:
    1. Open a DOS console (Windows) or a terminal (Linux), change the current directory to jetty-on-karaf.
@@ -9,5 +9,5 @@ Usage:
    6. On the Karaf Console, run:
       karaf@root()> feature:repo-add mvn:org.planner/jetty-on-karaf-features/1.0.0-SNAPSHOT/xml/features
       karaf@root()> feature:install -v karaf-webconsole
-   7. To access the web console, use "http://localhost:8080/system/console/bundles", type "karaf" for username and "karaf" for password.
+   7. To access the web console, use "http://localhost:8080/system/console", type "karaf" for username and "karaf" for password.
 
