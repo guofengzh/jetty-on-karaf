@@ -1,4 +1,4 @@
-Deploy Jetty 9.0.0 (using jetty-osgi-boot for web bundle support) to Karaf 3.0.0-SNAPSHOT
+Deploy Jetty 9.0.0 (using jetty-osgi-boot for web bundle support) to Karaf 3.0.0
 
 Usage:
    1. Open a DOS console (Windows) or a terminal (Linux), change the current directory to jetty-on-karaf.
