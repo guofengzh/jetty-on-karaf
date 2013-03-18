@@ -7,17 +7,21 @@
       
   <properties>
     <this.project.version>1.0.0-SNAPSHOT</this.project.version>
-    <jetty.version>9.0.0.M3</jetty.version>
-    <karaf.version>3.0.0-SNAPSHOT</karaf.version>
-    <pax-url-aether.version>1.5.1-SNAPSHOT</pax-url-aether.version>
-    <pax.web.version>2.1.0</pax.web.version>
-    <felix.scr>1.6.0</felix.scr>
+
+    <jetty.version>9.0.0.v20130308</jetty.version>
+    <npn.boot.version>1.1.5.v20130313</npn.boot.version>
+    <bouncycastle.version>1.47</bouncycastle.version>
+    <karaf.version>3.0.0.RC1</karaf.version>
+    <karaf-maven-plugin.version>3.0.0.RC1</karaf-maven-plugin.version>
+    <pax-url-aether.version>1.5.2</pax-url-aether.version>
+    <pax.web.version>3.0.0.M3</pax.web.version>
+    <felix.scr>1.6.2</felix.scr>
     <felix.web.console>4.0.0</felix.web.console>
-    <felix.metatype.version>1.0.4</felix.metatype.version>
-    <felix.eventadmin-plugin.version>1.0.2</felix.eventadmin-plugin.version>
+    <felix.metatype.version>1.0.6</felix.metatype.version>
+    <felix.webconsole.eventadmin-plugin.version>1.0.2</felix.webconsole.eventadmin-plugin.version>
 	
-    <org.osgi.compendium.version>4.3.0</org.osgi.compendium.version>
-    <org.osgi.core>4.3.0</org.osgi.core>
+    <org.osgi.compendium.version>4.3.1</org.osgi.compendium.version>
+    <org.osgi.core>4.3.1</org.osgi.core>
   </properties>
   
  <pluginRepositories>

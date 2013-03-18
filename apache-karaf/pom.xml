@@ -25,18 +25,18 @@
     <dependency>
       <groupId>org.mortbay.jetty.npn</groupId>
       <artifactId>npn-boot</artifactId>
-      <version>1.1.1.v20121030</version>
+      <version>${npn.boot.version}</version>
     </dependency>
 
 <dependency>
     <groupId>org.bouncycastle</groupId>
     <artifactId>bcpg-jdk15on</artifactId>
-    <version>1.47</version>
+    <version>${bouncycastle.version}</version>
 </dependency>
 <dependency>
     <groupId>org.bouncycastle</groupId>
     <artifactId>bcprov-ext-jdk15on</artifactId>
-    <version>1.47</version>
+    <version>${bouncycastle.version}</version>
 </dependency>
   </dependencies>
   

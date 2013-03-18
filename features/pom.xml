@@ -39,7 +39,7 @@
       <!--plugin>
         <groupId>org.apache.karaf.tooling</groupId>
         <artifactId>karaf-maven-plugin</artifactId>
-        <version>3.0.0-SNAPSHOT</version>
+        <version>${karaf-maven-plugin.version}</version>
         <executions>
           <execution>
             <id>generate</id>

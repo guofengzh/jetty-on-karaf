@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0" name="jetty-on-karaf">
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.2.0" name="jetty-on-karaf">
 
     <feature description="jetty-bundles" name="jetty-bundles" version="${jetty.version}">
-        <!--feature version="${org.osgi.compendium.version}">cmpn</feature-->
+        <feature version="${org.osgi.compendium.version}">cmpn</feature>
         
         <!-- 3rd party -->
         <!--bundle start-level="40">mvn:javax.servlet/javax.servlet-api/3.0.1</bundle-->
@@ -49,6 +49,7 @@
         <bundle start-level="40">mvn:org.eclipse.jetty.websocket/websocket-servlet/${jetty.version}</bundle>
 
         <!-- Jetty SPDY -->
+        <bundle start-level="40">mvn:org.eclipse.jetty.osgi/jetty-osgi-npn/${jetty.version}</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty.spdy/spdy-core/${jetty.version}</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty.spdy/spdy-server/${jetty.version}</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty.spdy/spdy-http-server/${jetty.version}</bundle>
@@ -71,7 +72,7 @@
 
     <feature description="Felix Web Console" name="felix-webconsole" version="${project.version}" resolver="(obr)">
         <feature version="${project.version}">httpservice</feature>
-		<!-- the following three bundles are required by web console 4.0 -->
+        <!-- the following three bundles are required by web console 4.0 -->
         <bundle start-level="42">mvn:org.json/com.springsource.org.json/1.0.0</bundle>
         <bundle start-level="42">mvn:commons-io/commons-io/2.4</bundle>
         <bundle start-level="42">mvn:commons-fileupload/commons-fileupload/1.2.2</bundle>
@@ -96,8 +97,8 @@
         <!--bundle start-level="30">mvn:org.apache.karaf.http/org.apache.karaf.http.core/${karaf.version}</bundle-->
         <!--bundle start-level="30">mvn:org.apache.karaf.http/org.apache.karaf.http.command/${karaf.version}</bundle-->
 
-		<!-- karaf webconsole -->
-        <bundle start-level="30">mvn:org.apache.felix/org.apache.felix.metatype/1.0.4</bundle>
+	<!-- karaf webconsole -->
+        <bundle start-level="30">mvn:org.apache.felix/org.apache.felix.metatype/${felix.metatype.version}</bundle>
         <bundle start-level="30">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.branding/${karaf.version}</bundle>
         <bundle start-level="30">mvn:org.apache.karaf.webconsole/org.apache.karaf.webconsole.console/${karaf.version}</bundle>
 		
@@ -108,7 +109,7 @@
 
         <conditional>
             <condition>eventadmin</condition>
-            <bundle start-level="30">mvn:org.apache.felix/org.apache.felix.webconsole.plugins.event/1.0.2</bundle>
+            <bundle start-level="30">mvn:org.apache.felix/org.apache.felix.webconsole.plugins.event/${felix.webconsole.eventadmin-plugin.version}</bundle>
         </conditional>
     </feature>
 	
