@@ -7,3 +7,11 @@ jetty-no-sdpy.xml - copied from jetty-osgi/jetty-osgi-boot/jettyhome, and rename
 jetty-deployer.xml -  copied from jetty-osgi/jetty-osgi-boot/jettyhome
 jetty-selector.xml - copied from jetty-osgi/jetty-osgi-boot/jettyhome
 
+
+NOTE:
+  The XML configuration files can be confingured using Java System property "jetty.etc.config.urls". The default value is
+     "etc/jetty.xml,etc/jetty-selector.xml,etc/jetty-deployer.xml"
+if the property "jetty.etc.config.urls" is not defined. 
+
+See DefaultJettyAtJettyHomeHelper#startJettyAtJettyHome and DefaultJettyAtJettyHomeHelper#getJettyConfigurationURLs
+
