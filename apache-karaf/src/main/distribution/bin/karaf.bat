@@ -288,7 +288,8 @@ if "%KARAF_PROFILER%" == "" goto :RUN
     SET ARGS=%1 %2 %3 %4 %5 %6 %7 %8
     rem Execute the Java Virtual Machine
 
-    set JAVA_OPTS=%JAVA_OPTS% -Djetty.home=%KARAF_BASE%/jettyhome
+    set JAVA_OPTS=%JAVA_OPTS% -Djetty.home=%KARAF_BASE%/jettyhome -Xbootclasspath/p:npn-boot-${npn.boot.version}.jar
+
     cd %KARAF_BASE%
     "%JAVA%" %JAVA_OPTS% %OPTS% -classpath "%CLASSPATH%" -Djava.endorsed.dirs="%JAVA_HOME%\jre\lib\endorsed;%JAVA_HOME%\lib\endorsed;%KARAF_HOME%\lib\endorsed" -Djava.ext.dirs="%JAVA_HOME%\jre\lib\ext;%JAVA_HOME%\lib\ext;%KARAF_HOME%\lib\ext" -Dkaraf.instances="%KARAF_HOME%\instances" -Dkaraf.home="%KARAF_HOME%" -Dkaraf.base="%KARAF_BASE%" -Djava.io.tmpdir="%KARAF_DATA%\tmp" -Dkaraf.data="%KARAF_DATA%" -Djava.util.logging.config.file="%KARAF_BASE%\etc\java.util.logging.properties" %KARAF_OPTS% %MAIN% %ARGS%
 

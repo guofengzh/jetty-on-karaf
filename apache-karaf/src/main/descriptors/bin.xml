@@ -32,6 +32,17 @@
       <outputDirectory>/</outputDirectory>
       <fileMode>0644</fileMode>
       <filtered>true</filtered>
+        <excludes>
+          <exclude>jettyhome/etc/keystore</exclude>
+        </excludes>
+   </fileSet>
+    <fileSet>
+      <directory>src/main/distribution</directory>
+      <outputDirectory>/</outputDirectory>
+      <fileMode>0644</fileMode>
+        <includes>
+          <include>jettyhome/etc/keystore</include>
+        </includes>
    </fileSet>
     <fileSet>
       <directory>src/main/lib</directory>
