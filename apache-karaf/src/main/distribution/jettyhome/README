@@ -1,0 +1,9 @@
+This fold is fully copied from  jetty-osgi/jetty-osgi-boot/jettyhome
+
+XML files in etc changed as the following:
+
+jetty.xml - jetty-no-spdy.xml plus jetty-spdy.xml from the distribution, which use SPDY
+jetty-no-sdpy.xml - copied from jetty-osgi/jetty-osgi-boot/jettyhome, and renamed.
+jetty-deployer.xml -  copied from jetty-osgi/jetty-osgi-boot/jettyhome
+jetty-selector.xml - copied from jetty-osgi/jetty-osgi-boot/jettyhome
+
