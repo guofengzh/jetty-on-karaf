@@ -150,16 +150,16 @@ the unresolved references are the packagegs referenced by the attached bundle.
                 <configuration>
                     <instructions>
                         <Bundle-SymbolicName>${bundle-symbolic-name}</Bundle-SymbolicName>
-                        <Fragment-Host>org.eclipse.jetty.osgi.boot;bundle-version="[7.0.0,8.5.0)"</Fragment-Host>
+                        <Fragment-Host>org.eclipse.jetty.osgi.boot;bundle-version="[8.0.0,9.5.0)"</Fragment-Host>
                         <Import-Package>
 						   !org.eclipse.jetty.osgi.boot.*,
 						   !org.osgi.service.event,
 						   !org.eclipse.jetty.deploy,
 						   !org.eclipse.jetty.util.log,
-                           org.ops4j.pax.url.mvn;version="[1.0.0,2.0.0)",
-						   org.osgi.service.url,
-						   org.slf4j,
-				           org.osgi.framework
+                                                    org.ops4j.pax.url.mvn;version="[1.0.0,2.0.0)",
+						    org.osgi.service.url,
+						    org.slf4j,
+				                    org.osgi.framework
                         </Import-Package>
                         <Bundle-RequiredExecutionEnvironment>JavaSE-1.6</Bundle-RequiredExecutionEnvironment> 
                     </instructions>

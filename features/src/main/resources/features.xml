@@ -41,7 +41,7 @@
 
         <!-- Jetty Websocket -->
         <!--bundle start-level="40">mvn:javax.websocket/javax.websocket-api/1.0-b08</bundle-->
-        <bundle start-level="40">mvn:org.eclipse.jetty.drafts/javax.websocket-api/0.0.006.draft</bundle>
+        <!--bundle start-level="40">mvn:org.eclipse.jetty.drafts/javax.websocket-api/0.0.006.draft</bundle-->
         <bundle start-level="40">mvn:org.eclipse.jetty.websocket/websocket-api/${jetty.version}</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty.websocket/websocket-client/${jetty.version}</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty.websocket/websocket-common/${jetty.version}</bundle>
@@ -58,7 +58,7 @@
         <!-- Jetty OSGi boot -->
         <bundle start-level="40">mvn:org.eclipse.jetty.osgi/jetty-osgi-boot/${jetty.version}</bundle>
         <bundle start-level="40">mvn:org.eclipse.jetty.osgi/jetty-osgi-boot-warurl/${jetty.version}</bundle>
-        <!--bundle start-level="40">mvn:org.eclipse.jetty.osgi/jetty-osgi-boot-mvn/${jetty.version}</bundle-->
+        <bundle start-level="40">mvn:org.eclipse.jetty.osgi/jetty-osgi-boot-mvn/${jetty.version}</bundle>
     </feature>
 	
     <feature description="compendium service feature" version="${org.osgi.compendium.version}" name="cmpn">

@@ -27,36 +27,37 @@ public class FileLocatorHelperImpl extends DefaultFileLocatorHelper
 
     public File getBundleInstallLocation(Bundle bundle) throws Exception
     {
+    	File file = super.getBundleInstallLocation(bundle) ;
+    	if ( file != null )
+    		return file ;
+    	
     	String loc = bundle.getLocation() ;
+		URL url = new URL( loc );
+		String procotol = url.getProtocol() ;
 	
-    	if ( loc.startsWith( "mvn:") )
-    	{
-			BundleContext bundleContext = bundle.getBundleContext() ;
-			String filter = "(" + URLConstants.URL_HANDLER_PROTOCOL + "=" + ServiceConstants.PROTOCOL + ")" ;
-			ServiceReference[] references = bundleContext.getServiceReferences(URLStreamHandlerService.class.getName(), filter);
-			if ( references != null && references.length != 0 )
-			{
-				URLStreamHandlerService streamService = (URLStreamHandlerService)bundleContext.getService(references[0]) ;
-				URL url = new URL( loc );
-				URLConnection connection = streamService.openConnection( url ) ;
-				InputStream in = connection.getInputStream() ;
-				String outFileName = createFileName( bundle, url ) ;
-				File outFile = bundle.getDataFile( outFileName ) ;
-				if ( !outFile.exists() || outFile.lastModified() < bundle.getLastModified() ) {
-				   // The cache does not exist or older than the bundle
-				   mackeCopy( in, outFile  ) ;
-				   outFile.setLastModified( bundle.getLastModified() ) ;
-				   log.info( "catch {} to {}", loc, outFile.toString() ) ;
-				}
-				in.close() ;
- 			    //File f = resolverService.resolve( new URL( loc ) ) ;
-			    bundleContext.ungetService( references[0] ) ;
-                return outFile ;
-			} else
-			    return null ;
-    	} else
-    	   return super.getBundleInstallLocation(bundle) ;
-    }
+		BundleContext bundleContext = bundle.getBundleContext() ;
+		// only for "mvn:" - String filter = "(" + URLConstants.URL_HANDLER_PROTOCOL + "=" + ServiceConstants.PROTOCOL + ")" ;
+		String filter = "(" + URLConstants.URL_HANDLER_PROTOCOL + "=" + procotol + ")" ;
+		ServiceReference[] references = bundleContext.getServiceReferences(URLStreamHandlerService.class.getName(), filter);
+		if ( references != null && references.length != 0 )
+		{
+			URLStreamHandlerService streamService = (URLStreamHandlerService)bundleContext.getService(references[0]) ;
+			URLConnection connection = streamService.openConnection( url ) ;
+			InputStream in = connection.getInputStream() ;
+			String outFileName = createFileName( bundle, url ) ;
+			File outFile = bundle.getDataFile( outFileName ) ;
+			if ( !outFile.exists() || outFile.lastModified() < bundle.getLastModified() ) {
+			   // The cache does not exist or older than the bundle
+			   mackeCopy( in, outFile  ) ;
+			   outFile.setLastModified( bundle.getLastModified() ) ;
+			   log.info( "catch {} to {}", loc, outFile.toString() ) ;
+			}
+			in.close() ;
+			    //File f = resolverService.resolve( new URL( loc ) ) ;
+		    bundleContext.ungetService( references[0] ) ;
+            return outFile ;
+		} else
+		    return null ;    }
     
     private void mackeCopy( InputStream in, File outFile ) throws IOException {
     	byte[] buffer = new byte[ 1024 * 100 ];

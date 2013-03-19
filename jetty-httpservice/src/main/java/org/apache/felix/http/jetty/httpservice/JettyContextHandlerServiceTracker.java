@@ -39,6 +39,8 @@ import org.osgi.framework.ServiceReference;
  */
 public class JettyContextHandlerServiceTracker implements ServiceListener
 {
+	//private Logger log = LoggerFactory.getLogger( JettyContextHandlerServiceTracker.class ) ;
+	
     private DispatcherServlet dispatcher;
     private final BundleContext context;
 
@@ -66,7 +68,7 @@ public class JettyContextHandlerServiceTracker implements ServiceListener
             case ServiceEvent.MODIFIED:
             case ServiceEvent.UNREGISTERING:
             {
-            	String contextPath = (String)sr.getProperty( OSGiWebappConstants.SERVICE_PROP_CONTEXT_PATH ) ;
+            	String contextPath = (String)sr.getProperty( OSGiWebappConstants.OSGI_WEB_CONTEXTPATH ) ;
             	if ( "/".equals( contextPath ) )
                 	dispatcher.destroy() ;
             }
@@ -89,7 +91,7 @@ public class JettyContextHandlerServiceTracker implements ServiceListener
             	 * it as the service of ContextHandler. JettyContextHandlerServiceTracker track the service, 
             	 * deploy the web bundle using WebBundleDeployHelper.
             	 */
-            	String contextPath = (String)sr.getProperty( OSGiWebappConstants.SERVICE_PROP_CONTEXT_PATH ) ;
+            	String contextPath = (String)sr.getProperty( OSGiWebappConstants.OSGI_WEB_CONTEXTPATH ) ;
 				System.out.println( "Context handler with Context path '" + contextPath + "' deployed" ) ;
             	if ( "/".equals( contextPath ) )
             	{

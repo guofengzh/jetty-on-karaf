@@ -22,3 +22,11 @@ It's useful to look at the full stack trace. You could also use -Djavax.net.debu
 etc:
    Using the xml configuration files in jetty-osgi/jetty-osgi-boot/jettyhome. In jetty 9 final, it simplfy the configuration of web app in OSGi enviroment.(no need to configure OSGi-specific deployer or web provider explicity.
 
+Debug Karaf
+
+Before you'll start karaf set environment option KARAF_DEBUG to 1. After 
+that Karaf will start VM with additional parameters to let connect you from 
+debugger. After that you can debug it as remote java application in Eclipse. 
+
+EXPORT KARAF_DEBUG=1
+
