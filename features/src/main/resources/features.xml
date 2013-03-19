@@ -81,7 +81,7 @@
         <bundle start-level="45">mvn:org.apache.felix/org.apache.felix.webconsole/${felix.web.console}</bundle>
     </feature>
     
-    <feature name="karaf-webconsole" version="3.0.0-SNAPSHOT" description="Base support of the Karaf WebConsole" resolver="(obr)">
+    <feature name="karaf-webconsole" version="${karaf.version}" description="Base support of the Karaf WebConsole" resolver="(obr)">
         <config name="org.apache.karaf.webconsole">
             realm=karaf
         </config>
@@ -118,10 +118,10 @@
         <bundle start-level="4">mvn:org.apache.karaf/manual/${karaf.version}/war</bundle>
 	</feature>
 
-    <feature description="sample" name="sample" version="1.0.0-SNAPSHOT">
+    <feature description="sample" name="sample" version="${project.version}">
         <feature version="${project.version}">httpservice</feature>
-        <bundle start-level="45">mvn:org.planner/jetty.httpservice.sample/1.0.0-SNAPSHOT</bundle>
-        <bundle start-level="45">mvn:org.planner/wab-sample-loginmodule/1.0.0-SNAPSHOT</bundle>
+        <bundle start-level="45">mvn:org.planner/jetty.httpservice.sample/${project.version}</bundle>
+        <bundle start-level="45">mvn:org.planner/wab-sample-loginmodule/${project.version}</bundle>
         <bundle start-level="45">mvn:org.planner/wab-sample/${project.version}/war</bundle>
     </feature>
 </features>
