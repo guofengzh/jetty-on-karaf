@@ -1,3 +1,47 @@
 contains all raw files which will be copied as-is into your custom distribution
 
 The src/main/distribution contains all your custom Karaf configuration files and scripts, as, for examples
+
+Jetty 9.x Features:
+ + Java 1.7 Compatible
+ + Completely overhauled I/O layer
+ + Servlet API 3.0
+ + JSP 2.1
+ + SPDY/3
+ + New WebSocket API (RFC-6455)
+
+Of special note for early adopters of Jetty 9.x:
+
+ + The XML DTD has a XML id reference bug that forced us to create a new DTD to handle id references better.
+    old way:
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure.dtd">
+<Configure id="Server" class="org.eclipse.jetty.server.Server">
+  <Call name="addConnector">
+    <Arg>
+      <New class="org.eclipse.jetty.server.ServerConnector">
+        <Arg><Ref id="Server" /></Arg>
+    new way:
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure_9.0.dtd">
+<Configure id="Server" class="org.eclipse.jetty.server.Server">
+  <Call name="addConnector">
+    <Arg>
+      <New class="org.eclipse.jetty.server.ServerConnector">
+        <Arg><Ref refid="Server" /></Arg>
+
+ + The Jetty WebSocket API has been reworked to better support future Extensions and to better align it with the upcoming JSR-356 (Java WebSocket API)
+    Be aware that the old techniques that used a WebSocketConnection have been changed to a new Session object.
+    See Javadoc: http://download.eclipse.org/jetty/stable-9/apidocs/org/eclipse/jetty/websocket/api/Session.html
+
+    Old Way:
+      Listener Approach
+      http://git.eclipse.org/c/jetty/org.eclipse.jetty.project.git/tree/jetty-websocket/websocket-common/src/test/java/examples/echo/ListenerEchoSocket.java?id=e1c516c7d1937b8604864dfe57236877ef5be4ea
+      Annotation Approach
+      http://git.eclipse.org/c/jetty/org.eclipse.jetty.project.git/tree/jetty-websocket/websocket-common/src/test/java/examples/echo/AnnotatedEchoSocket.java?id=e1c516c7d1937b8604864dfe57236877ef5be4ea
+
+    New Way:
+      Listener Approach
+      http://git.eclipse.org/c/jetty/org.eclipse.jetty.project.git/tree/jetty-websocket/websocket-common/src/test/java/examples/echo/ListenerEchoSocket.java
+      Annotation Approach
+      http://git.eclipse.org/c/jetty/org.eclipse.jetty.project.git/tree/jetty-websocket/websocket-common/src/test/java/examples/echo/AnnotatedEchoSocket.java
+
+
