@@ -28,12 +28,22 @@
     
     <!-- my distribution -->
     <fileSet>
+      <directory>src/main/distribution/bin</directory>
+      <outputDirectory>/bin</outputDirectory>
+      <!--  permissions change to -rwxr-xr-x. The owner would have full read, write, and execute permissions (7=4+2+1), 
+           the group would have read and execute permissions (5=4+1), and the world would have the read and execute permissions as well.
+     -->
+      <fileMode>0755</fileMode>
+      <filtered>true</filtered>
+   </fileSet>
+    <fileSet>
       <directory>src/main/distribution</directory>
       <outputDirectory>/</outputDirectory>
       <fileMode>0644</fileMode>
       <filtered>true</filtered>
         <excludes>
           <exclude>jettyhome/etc/keystore</exclude>
+          <exclude>bin</exclude>
         </excludes>
    </fileSet>
     <fileSet>
